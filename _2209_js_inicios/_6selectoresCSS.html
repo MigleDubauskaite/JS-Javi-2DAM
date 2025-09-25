@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>006: Práctica de Selectores CSS</title>
+    <link rel="stylesheet" href="_6selectoresCSS.css">
+    <style>
+        /* Estilos base para organización */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>006: Práctica de Selectores CSS</h1>
+    <p>Esta página contiene elementos HTML para practicar todos los tipos de selectores CSS.</p>
+    
+    <section id="selectores-basicos">
+        <h2>Selectores Básicos</h2>
+        
+        <p>Este es un párrafo normal.</p>
+        <p class="destacado">Este es un párrafo con clase "destacado".</p>
+        <p id="unico">Este párrafo tiene ID "unico".</p>
+        
+        <div class="contenedor">
+            <p>Este párrafo está dentro de un div con clase "contenedor".</p>
+        </div>
+        
+        <p>Enlaces de ejemplo:
+            <a href="https://www.ejemplo.com">Enlace externo HTTPS</a>,
+            <a href="http://ejemplo.local">Enlace HTTP</a>,
+            <a href="documento.pdf">Enlace a PDF</a>,
+            <a href="imagen.jpg">Enlace a imagen</a>,
+            <a href="https://ejemplo.com/pagina">Otro enlace HTTPS con "ejemplo"</a>
+        </p>
+        
+        <p lang="en">This paragraph is in English.</p>
+        <p lang="en-US">This paragraph is in US English.</p>
+        <p lang="es">Este párrafo está en español.</p>
+    </section>
+    
+    <section id="combinadores">
+        <h2>Combinadores de Selectores</h2>
+        
+        <div class="padre">
+            <p>Este párrafo es hijo directo de div.padre</p>
+            <div>
+                <p>Este párrafo es nieto (no hijo directo) de div.padre</p>
+            </div>
+            <p>Este también es hijo directo de div.padre</p>
+        </div>
+        
+        <h3>Subtítulo para demostrar selector adyacente</h3>
+        <p>Este párrafo sigue inmediatamente a un h3.</p>
+        <p>Este es otro párrafo después del h3 (no adyacente).</p>
+        <p>Este es un tercer párrafo después del h3.</p>
+    </section>
+    
+    <section id="pseudoclases">
+        <h2>Pseudoclases</h2>
+        
+        <ul>
+            <li>Primer elemento de la lista</li>
+            <li>Segundo elemento de la lista</li>
+            <li>Tercer elemento de la lista</li>
+            <li>Cuarto elemento de la lista</li>
+            <li>Quinto elemento de la lista</li>
+            <li>Sexto elemento de la lista</li>
+        </ul>
+        
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre (requerido):</label>
+                <input type="text" id="nombre" required placeholder="Tu nombre">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email (opcional):</label>
+                <input type="email" id="email" placeholder="correo@ejemplo.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="website">Sitio web (URL):</label>
+                <input type="url" id="website" placeholder="https://...">
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="acepto"> Acepto los términos
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <button type="button">Botón Activo</button>
+                <button type="button" disabled>Botón Deshabilitado</button>
+            </div>
+        </form>
+        
+        <div id="box"></div> <!-- Div vacío para :empty -->
+    </section>
+    
+    <section id="pseudoelementos">
+        <h2>Pseudoelementos</h2>
+        
+        <p class="drop-cap">Este párrafo tiene una clase "drop-cap" para estilizar su primera letra como una letra capital. El resto del texto continúa normalmente.</p>
+        
+        <p class="intro">Este párrafo tiene la clase "intro" para estilizar su primera línea. Tiene suficiente texto para asegurar que ocupe al menos dos líneas en la mayoría de las pantallas, permitiendo así ver el efecto de ::first-line en acción.</p>
+        
+        <p class="cita">Este párrafo tiene pseudoelementos ::before y ::after para añadir comillas.</p>
+        
+        <ul class="custom-markers">
+            <li>Elemento con marcador personalizado</li>
+            <li>Otro elemento con marcador personalizado</li>
+        </ul>
+    </section>
+    
+    <section id="selectores-avanzados">
+        <h2>Selectores Avanzados</h2>
+        
+        <article>
+            <h3>Primer artículo</h3>
+            <p>Párrafo simple.</p>
+            <p>Otro párrafo <span>con un span dentro</span>.</p>
+            <a href="#">Enlace dentro del artículo</a>
+        </article>
+        
+        <article>
+            <p>Un párrafo inicial.</p>
+            <h3>Segundo artículo</h3>
+            <p>Párrafo después del encabezado.</p>
+        </article>
+    </section>
+</body>
+</html>

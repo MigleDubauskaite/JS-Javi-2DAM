@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS: Ejemplo 1</title>
+  </head>
+
+  <body>
+    <h1>JS: Ejemplo 1</h1>
+
+    <script>
+      /* Tipo de dato tipado */
+
+      /*v0 = 7;*/ /* da error ponerlo aquí, ya que se intenta usarla a ella antes de inicialización let= */
+      let v0 = 0;
+      console.log(v0);
+
+      v1 = 75;
+      console.log(v1);
+      v1 = "hola";
+      console.log(v1);
+
+      /* VAR VS LET */
+      /*
+        var tiene un alcance de función o global
+        let tiene un alcance de bloque (local)
+        */
+
+      // se puede redeclar
+      // no se recomienda su uso (solo con var)
+      var var1 = "variable 1";
+      var var1 = "nueva variable 1";
+      console.log(var1);
+
+      // se le puede asignar un nuevo valor
+      // con let no se puede declarar dos veces con el mismo nombre
+      var var2 = 7;
+      var2 = 9;
+      console.log(var2);
+
+      // no se puede cambiar el valor a las constantes
+      const c3 = 5;
+      //c3 = 3;
+      console.log(c3);
+
+      // LET
+      let edad = 10;
+      let nombre = "Pedro";
+      let persona = nombre + " tiene " + edad + " años \n\n\n\n";
+      console.log(persona);
+      persona2 = `${nombre} tiene ${edad} años`;
+      console.log(persona2);
+
+      //
+      let estado = true;
+      if (estado) {
+        estado2 = false;
+      }
+      console.log(estado2);
+      // 'use strict'
+      // si no declaramos (estado2) se crea ....
+
+      // ARRAYS
+
+      /*const significa que frutas siempre apunta a este array aunque este cambie. 
+        LO QUE ES CONSTANTE ES LA REFERENCIA AL OBJETO*/
+      const frutas = ["peras", "manzanas", "plátanos"];
+      console.log(frutas);
+
+      //push() ➝ añade un elemento al final del array./
+      frutas.push("tomate");
+      console.log(frutas);
+
+      //unshift() ➝ añade un elemento al principio del array./
+      frutas.unshift("cereza");
+      console.log(frutas);
+
+      //pop() ➝ borra el último elemento
+      frutas.pop();
+      console.log(frutas);
+
+      // for-each
+      console.log("\nfor each");
+      for (const fruta of frutas) {
+        console.log(" - " + fruta);
+      }
+
+      console.log("\nfor i");
+      for (let i = 0; i < frutas.length; i++) {
+        console.log(" - " + frutas[i]);
+      }
+
+      // funciones
+      //lo que devuelve no se espresa en el nombre del método y en el parámetro no hace falta especificar el tipo/
+
+      function muestraArray(array) {
+        for (const elemento of array) {
+          console.log(" ** " + elemento);
+        }
+      }
+      // se podría llamar a la función incluso antes de crearla (es decir arriba de la function....)
+      console.log("\nfunction muestraArray()");
+      muestraArray(frutas);
+
+      function muestraArray2(array = ["defecto 1", "defecto 2"]) {
+        for (const elemento of array) {
+          console.log(" ** " + elemento);
+        }
+      }
+      console.log("\n");
+      muestraArray2(frutas);
+
+      // while
+
+      console.log("\nwhile");
+      let i = 0;
+      while (i < frutas.length) {
+        console.log(`x - ${frutas[i++]}`);
+      }
+
+      i = 0;
+      //mostrar con do-while
+      console.log("\nmostrar con do-while");
+      do {
+        console.log(`*** - ${frutas[i++]}`);
+      } while (i < frutas.length);
+
+      // NO podemos cambiar la referencia a un const, por ejemplo frutas = []; ➝➝➝➝➝➝ XXXXX
+
+      // EJERCICIO 1
+      const numeros = [1, -5, 3, 6, 0, 2];
+
+      // cuenta los números positivos
+
+      let contador = 0;
+      for (const n of numeros) {
+        if (n >= 0) {
+          contador++;
+        }
+      }
+      console.log(`Cantidad de números positivos ${contador} \n\n`);
+
+      // duplica el valor de los números
+      for (let i = 0; i < numeros.length; i++) {
+        numeros[i] *= 2;
+        console.log(`Duplicamos los números ${numeros[i]} \n`);
+      }
+
+      console.log("\nSolución JAVI");
+      contador = 0;
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] > 0) contador++;
+        numeros[i] *= 2;
+      }
+      console.log("Los números positivos: ", contador);
+      console.log("Duplicamos los números: ", numeros);
+
+      // elimina los números negativos
+      // borrar de abajo hacia arriba para no comprimir (no cambiar lo indices) y recorrer todos con orden correcto
+
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] < 0) {
+          numeros.splice(i, 1);
+          i--;
+        }
+      }
+      console.log("Borramos los números negativos: ", numeros); 
+
+
+    </script>
+  </body>
+</html>

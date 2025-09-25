@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio para pra</title>
+</head>
+
+<style>
+    p {
+        padding: 5px 5px;
+        background-color: #eee;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<body>
+    <h1>003: JS</h1>
+
+    <div id="contenido"></div>
+
+    <!--
+    <p id="1"></p>
+    <p id="2"></p>
+    <p id="3"></p>
+    <p id="4"></p>
+    <p id="5"></p>
+    <p id="6"></p>
+    <p id="7"></p>
+    <p id="8"></p>
+    <p id="9"></p>
+    <p id="10"></p>
+    <p id="11"></p>
+    <p id="12"></p>
+    <p id="13"></p>
+    -->
+
+    <!--     <p id="entero-positivo"></p>
+    <p id="entero-negativo"></p>
+    <p id="decimal-positivo"></p>
+    <p id="decimal-negativo"></p>
+    <p id="octal"></p>
+    <p id="binario"></p>
+    <p id="hexa"></p>
+    <p id="infinito"></p>
+    <p id="no-es-un-numero"></p>
+    <p id="booleano"></p>
+    <p id="sin-definir"></p>
+    <p id="nulo"></p>
+
+    <p id="gran-numero"></p> -->
+
+    <script>
+        // SOLUCIÓN DE JAVI:
+  
+        function mostrarInfo(valor, base) {
+  
+            const label = document.getElementById('contenido');
+  
+            if (base === 8 || base === 16 || base === 2) {
+                let prefijo = base === 8 ? '0o' : base === 16 ? '0x' : base === 2 ? '0b' : '';
+                label.innerHTML += `<p> ${prefijo + valor.toString(base)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor} </p>`;
+            } else {
+                label.innerHTML += `<p>${valor} se corresponde con el tipo ${typeof valor}</p>`;
+            }
+  
+        }
+  
+        const datos = [
+            [10, 0],
+            [-10, 0],
+            [10.5, 0],
+            [-10.5, 0],
+            [0o343, 8],
+            [0b10001, 2],
+            [0x3fe21, 16],
+            [Infinity, 0],
+            [NaN, 0],
+            [true, 0],
+            [undefined, 0],
+            [null, 0],
+            [9007199254740991n, 0]
+        ];
+  
+        for (const dato of datos) {
+            mostrarInfo(dato[0], dato[1]);
+        }
+
+
+
+
+        ////////////////////
+        ///////////////////
+         ////////////////////
+        ///////////////////
+         ////////////////////
+        ///////////////////
+        /*
+       function imprimir(id, valor) {
+          
+           if (id == 5) {
+               document.getElementById(id).innerHTML = ` 0o${valor.toString(8)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+           }
+           else if (id == 6) {
+               document.getElementById(id).innerHTML = ` 0b${valor.toString(2)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+           }
+           else if (id == 7) {
+               document.getElementById(id).innerHTML = ` 0x${valor.toString(16)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+           }
+           else {
+               document.getElementById(
+                   id
+               ).innerHTML = `${valor} se corresponde con el tipo ${typeof valor}`;
+           }
+       }
+           
+       imprimir(1, 10);
+       imprimir(2, -10);
+       imprimir(3, 10);
+       imprimir(4, -10.5);
+       imprimir(5, 0o343);
+       imprimir(6, 0b10001);
+       imprimir(7, 0x3fe21);
+       imprimir(8, Infinity);
+       imprimir(9, NaN);
+       imprimir(10, true);
+       imprimir(11, undefined);
+       imprimir(12, null);
+       imprimir(13, 9007199254740991n);
+       */
+
+
+        // OTRA SOLUCIÓN:
+
+        /*
+        const numeros = [10, -10, 10, -10.5, 0o343, 0b10001, 0x3fe21,Infinity, NaN, true, undefined, null, 9007199254740991n];
+
+        for (let i = 0; i < numeros.length; i++) {
+            let id = i + 1;
+            let valor = numeros[i];
+            let mensaje = ' ';
+
+              if (id == 5) {
+                mensaje = `0o${valor.toString(8)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+            }
+            else if (id == 6) {
+                mensaje =  `0b${valor.toString(2)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+            }
+            else if (id == 7) {
+                mensaje =  `0x${valor.toString(16)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+            }
+            else {
+                mensaje = `${valor} se corresponde con el tipo ${typeof valor}`;
+            }
+
+            document.getElementById(id).innerHTML = mensaje;
+        }
+            */
+
+
+        // OTRA VERSIÓN
+
+        /*
+        const numeros = [10, -10, 10, -10.5, 0o343, 0b10001, 0x3fe21, Infinity, NaN, true, undefined, null, 9007199254740991n];
+
+        for (let i = 0; i < numeros.length; i++) {
+            let valor = numeros[i];
+            let mensaje = '';
+
+            if (i + 1 == 5) {
+                mensaje = `0o${valor.toString(8)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+            } else if (i + 1 == 6) {
+                mensaje = `0b${valor.toString(2)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+            } else if (i + 1 == 7) {
+                mensaje = `0x${valor.toString(16)} es en decimal ${valor} y se corresponde con el tipo ${typeof valor}`;
+            } else {
+                mensaje = `${valor} se corresponde con el tipo ${typeof valor}`;
+            }
+
+            let p = document.createElement('p');
+            p.innerHTML = mensaje;
+            document.body.appendChild(p);
+
+
+        }
+
+
+        */
+
+
+    </script>
+</body>
+
+</html>

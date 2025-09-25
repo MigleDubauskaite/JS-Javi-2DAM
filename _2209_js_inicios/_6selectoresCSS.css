@@ -1,0 +1,149 @@
+
+/* SELECTORES BÁSICOS */
+
+/* 1. Selector de elemento: Selecciona todos los párrafos */
+p{
+    background-color: floralwhite ;
+}
+
+/* 2. Selector de clase: Selecciona elementos con clase "destacado" */
+.destacado{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 3. Selector de ID: Selecciona el elemento con ID "unico" */
+#unico{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+/* 4. Selector universal: Selecciona todos los elementos */
+*{
+    background-color: antiquewhite;
+}
+
+/* 5. Selector de atributo: Selecciona elementos con atributo href */
+[href]{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    color: rgb(207, 22, 22);
+}
+
+/* 6. Selector de atributo con valor exacto: Enlaces que apuntan a PDFs */
+[href$=".pdf"]{
+    background-color: rgb(202, 235, 149);
+}
+
+/* 7. Selector de atributo que comienza con: Enlaces externos (https) */
+[href^="https"]{
+    background-color: rgb(236, 224, 248);
+}
+
+/* 8. Selector de atributo que contiene: Enlaces que contienen "ejemplo" */
+[href*="ejemplo"]{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+/* 9. Selector de atributo idioma: Elementos en inglés o variantes */
+[lang|="en"]{
+    background-color: rgb(226, 213, 205);
+}
+
+/* COMBINADORES DE SELECTORES */
+
+/* 10. Selector descendiente: Párrafos dentro de div.contenedor */
+div.contenedor p{
+    background-color: rgb(149, 178, 204);
+    font-size: 12px;
+}
+
+/* 11. Selector hijo directo: Párrafos que son hijos directos de div.padre */
+div.padre > p{
+    background-color: rgb(178, 231, 200);
+}
+
+/* 12. Selector adyacente: Párrafos que siguen inmediatamente a un h3 */
+h3 + p{
+    background-color: rgb(207, 143, 204);
+}
+
+/* 13. Selector de hermanos generales: Todos los párrafos después de un h3 */
+h3 ~ p{
+    background-color: rgb(194, 221, 150);
+}
+
+/* 14. Selectores múltiples: h1, h2 y h3 */
+h1, h2, h3{
+    color: rgb(129, 17, 133);
+}
+
+/* PSEUDOCLASES */
+
+/* 15. Elemento al pasar el cursor: Cambiar enlaces al pasar el cursor */
+a:hover{
+  
+    color: rgb(255, 255, 255);
+}
+
+/* 16. Elemento activo: Mientras se hace clic en un enlace */
+a:active{
+    color: rgb(184, 211, 85);
+}
+
+/* 17. Enlace visitado */
+a:visited{
+    color: rgb(108, 75, 199);
+}
+
+/* 18. Elemento con foco: Campo de formulario seleccionado */
+input:focus {
+  color: rgb(204, 24, 54);
+}
+
+/* 19. Primer hijo: Primer elemento li de cualquier lista */
+.form-group:first-child{
+    color: rgb(23, 91, 94);
+    font-weight: bold;
+}
+
+/* 20. Último hijo: Último elemento li de cualquier lista */
+li:last-child{
+    color: rgb(18, 74, 196);
+    font-size: 1.3rem;
+}
+
+/* 21. Enésimo hijo: Elementos pares de la lista */
+li:nth-child(even){
+    background-color: rgb(228, 225, 93);
+}
+
+/* 22. Enésimo hijo: Elementos impares de la lista */
+li:nth-child(odd){
+    background-color: rgb(196, 159, 214);
+}
+
+/* 23. Enésimo hijo fórmula: Cada tercer elemento de la lista */
+li:nth-child(3n){
+    color: rgb(204, 3, 3);
+}
+
+/* 24. Elemento vacío: Divs sin contenido */
+.box:empty {
+  background-color: lime;
+}
+
+/* 25. Elemento requerido: Campos obligatorios */
+input:required{
+    color: yellowgreen;
+}
+
+/* 26. Elemento opcional: Campos no obligatorios */
+/* 27. Elemento verificado: Checkbox marcado */
+/* 28. Elemento habilitado: Inputs habilitados */
+/* 29. Elemento deshabilitado: Inputs deshabilitados */
+/* 30. Entrada válida: Campo con dato válido */
+/* 31. Entrada inválida: Campo con dato inválido */
+/* 32. Selector de negación: Párrafos que no tienen la clase "destacado" */
+/* 33. Elemento raíz */

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo 2</title>
+  </head>
+  <style>
+    #back {
+      background-color: rgb(235, 216, 216);
+      padding: 20px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 300 bold;
+      border-radius: 35px;
+    }
+  </style>
+  <body>
+    <h1 id="titulo"></h1>
+
+    <div id="back">
+      <p id="texto"></p>
+    </div>
+
+    <script>
+      // creamos objeto si necesitamos utilizarlo más veces que una
+      const tituloLabel = document.getElementById("titulo");
+      const parrafoLabel = document.getElementById("texto");
+
+      tituloLabel.innerHTML = "JS: Ejemplo 2";
+      parrafoLabel.innerHTML = "Hola Mundo";
+
+      // document.getElementById('texto').parrafoLabel.innerHTML = "Hola Mundo";
+
+      // VAR VS LET
+      /*
+        VAR:
+        se puede redeclarar la misma variable (aunque no se recomienda)
+        LET: 
+        solo se puede declararla una vez, pero se peude reasignar su valor
+
+        VAR:
+        se puede utilizar la variables antes de declararla - valor por defecto es undefined
+        LET:
+        no se puede declararla 
+
+        VAR:
+        tiene ámbito de función: si declaramos dentro de cualquier bucle {} sale fuera del bloque y sigue existiendo. 
+        Sin embargo, respeta funciones (al salir de funciones no existe)
+        LET:
+        tiene ámbito de bloque: si declaramos dentro de {} y sale fuera nos va a dar ERROR poruqe no existe fuera del bloque.
+
+        VAR:
+        se considera obsoleto en nuevas implementaciones
+
+      */
+
+      // da error
+      //console.log(v4);
+      //let v4;
+
+      // nos devuelve undefined
+      console.log(v5);
+      var v5;
+
+      /*
+      BUENAS PRÁCTICAS:
+      - utilizar const y cambiar a let si necesitamos modificar el valor
+      - evitar usar var
+      */
+
+      // TIPOS DE DATOS
+      // enteros, decimales, infinito, "not a Number" == NaN (no es un número válido)
+      // const inf = Infinity;
+      // const noesNum = NaN;
+
+      // String, Boolean
+      // Undefined: let sinDefinir; console.log(sinDefinir)
+      // Null (=null)
+
+      // Symbol: crea un elemento único (aunque tenga la misma descripción/valor) e inmutable. Ej:
+      // Es un tipo de dato primitivo y único
+      // podemos verlo como un id (PK)´
+      // Caracteristicas: unicidad garantizada, uso como propiedades únicas,
+      const s1 = Symbol("descripcion");
+      const s2 = Symbol("descripcion");
+      console.log(s1 == s2); // false
+      console.log(s1 === s2); // false
+
+      // diferencia entre == y === (permite comparar datos primitivos)
+      // == ----- true: coincide valores aunque no tipo
+      // === ----- false: mira el valor y el tipo
+      console.log(5 == "5");
+      console.log(5 === "false");
+      // También existe equals() para comparar Objetos
+
+      // BigInt
+      // Number.MAX_SAFE_INTEGER
+      // Con const pierde la precisión
+      // bigInt mantiene la precisión exacta, hay que utilizar n al final del número
+      //bigInt no se puede mezclar con números normales
+      // const normal = 456; BigInt(normal) - es un constructor
+
+      // TIPOS DE REFERENCIA --- OBJETOS (colección de propiedades)
+      const persona = {
+        nombre: "Juan",
+        edad: 30,
+        saludar: function () {
+          return `Hola, soy ${this.nombre}`;
+        },
+      };
+      console.log();
+      console.log(persona);
+      console.log(persona.nombre);
+      console.log(persona.edad);
+      console.log(persona.saludar());
+
+      function sumar(a = 2, b = 3) {
+        return a + b;
+      }
+      console.log(sumar());
+
+      const suma = (a = 2, b = 4) => a * b;
+      console.log(suma());
+
+      // Verificación de tipos
+      // Operador typeof
+      const ahora = new Date();
+      const ahora2 = Date();
+      console.log(ahora);
+      console.log(typeof ahora);
+      console.log(ahora2);
+      console.log(typeof ahora2);
+      
+    </script>
+  </body>
+</html>

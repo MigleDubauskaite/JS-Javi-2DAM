@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+
+    <!-- ARRAYS -->
+
+    <!-- MAP CREA UN NUEVO ARRAY, COGIENDO N Y TRANSFORMANDO CADA UNO DE ELEMENTOS (?) -->
+
+
+    <h1>ARRAYS</h1>
+
+    <ul id="contenido"></ul>
+
+    <script>
+
+        /* REDUCE: REDUCE EL ARRAY A UN ÚNICO VALOR 
+        valor de iniciaicon es 0, coge primer elemento le suma con 0, 2 elemento se suma con el siguiente: se suma por parejitas
+        n === primer elemento*/
+        const numeros1 = [1, 2, 3, 4, 100, 5, -20, 10];
+        
+        const suma = numeros1.reduce((total, n) => total + n, 0);
+        console.log("Suma:", suma);
+
+        const resta = numeros1.reduce((total, n) => total - n, 0);
+        console.log("Resta:", resta);
+
+        const num = [2, 2];
+        const multi = num.reduce((total, n) => total * n, 1);
+        console.log("Multiplicación:", multi);
+
+        // maximo
+        const maximo = numeros1.reduce((max, num) => max > num ? max : num);
+        console.log("Máximo:", maximo);
+
+        // minimo
+        const min = numeros1.reduce((min, num) => min < num ? min : num);
+        console.log("Minimo:",min);
+
+
+        const numeros = [1, 2, 3, 4];
+
+        function imprimirArray(array) {
+            for (const ar of array) {
+                const texto = document.getElementById('contenido');
+                texto.innerHTML += `<li> ${ar} </li>`;
+            }
+        }
+
+        imprimirArray(numeros);
+
+    </script>
+
+</body>
+
+</html>

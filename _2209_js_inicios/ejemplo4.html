@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 4</title>
+</head>
+
+<body>
+
+
+    <!-- exponenciación: **
+        2 ** 4 == 2 elevado a 4 
+    -->
+
+    <!-- console.log(2, 3) coma pone un espacio en blanco en la consola JS -->
+
+
+    <script>
+
+        let x = 2;
+        x **= 2;
+        console.log(x);
+
+        let y = 6;
+        y /= 8;
+        console.log(y);
+
+        let z = 6.6;
+        z %= 10;
+        console.log(z);
+
+        /* Math.floor
+            Math.ceil
+            Math.pow
+            Math.random (entre 0(inclusive) y 1 (exclusive))
+            Math.sqrt    etc.
+        */
+
+        // ejemplo: numero aleatorio entre un minimo y maximo
+
+        // IGUALDAD ESTRICTA Y NO ESTRICTA
+        console.log(5 == '5');
+        console.log(5 === '5');
+        console.log(5 !== '5')
+
+        // lo objetos y arrays se comparan por referencia, no por contenido
+        console.log({} == {}); // false
+        console.log([] == []); // false // y con === también es false
+
+        const obj1 = {};
+        const obj2 = [];
+        console.log(obj1 === obj2);
+
+        /* En JavaScript, cuando comparas objetos, arrays o funciones con == o ===, lo que se compara es la referencia en memoria, no el contenido. */
+
+        /* arr11 === arr22 → false (referencia distinta).
+        JSON.stringify(arr11) === JSON.stringify(arr22) → true (contenido convertido a string es igual). */
+
+        const arr11 = [1, 2, 3];
+        const arr22 = [1, 2, 3];
+        const arr33 = arr11;
+        const sonIguales = JSON.stringify(arr11) === JSON.stringify(arr22);
+        console.log('\n\n' + sonIguales); // true
+        console.log(arr11 === arr22); // false
+        console.log(arr11 === arr33); // true
+
+        const arr1 = [1, 2, 3];
+        const arr2 = ['1', '2', 3];
+        const sonDistintos = JSON.stringify(arr1) === JSON.stringify(arr2);
+        console.log('\n' + sonDistintos);
+
+        // operador nullish coalescing
+        /* devuelve el operando derecho cuando el izquierdo es null o undefined  
+            parecido al Optional de JAVA*/
+        const valorPorDefecto = null ?? 'valor por defecto';
+        console.log('\n' + valorPorDefecto); // devuelve valor por defecto porque es null
+
+        const valorDefinido = 'valor existente' ?? 'valor por defecto'; // devuelve valor existente porque no es nulo
+        console.log(valorDefinido);
+
+        // Los métodos de array como FOR-EACH, MAP, FILTER ofrecen alternativas más modernas y declarativas para iterar sobre colecciones
+
+
+        // Ejemplo for
+        console.log('\n\nFOR')
+        for(let i = 1; i <= 5; i++){
+            console.log(`Númeroooo: ${i}`);
+        }
+
+        const numeros = [1, 2, 3, 4, 5];
+
+        // Ejemplo forEach
+        console.log('\n\nFOR EACH =>');
+        console.log(`\nNúmeros: ${numeros} :`);
+
+        numeros.forEach (numero => {
+            console.log(`\nNúmero: ${numero}`);
+        })
+
+        console.log('\n\nFOR OF');
+        for(const num of numeros){
+            console.log(`Número: ${num}`);
+        }
+
+        console.log('\n\nFOR OF + ENTRIES');
+        for(const[indice, num] of numeros.entries()){
+            console.log(`Índice: ${indice}, Números: ${num}`);
+        }
+
+        const persona = {nombre: "Ana", edad: 28, ciudad: 'Madrid'};
+
+        console.log('\n\nFOR OF: Object.entries()');
+        for(const[clave, valor] of Object.entries(persona)){
+           console.log(`Clave: ${clave}, Valor: ${valor}`);
+        }
+
+        console.log('\n\nFOR EACH: Object.entries()');
+        Object.entries(persona).forEach(([clave, valor]) => {
+          console.log(`Clave: ${clave}, Valor: ${valor}`)
+        })
+
+        /* En el for...in, la variable clave no es el valor, sino el nombre de la propiedad del objeto. */
+        console.log('\n\nFOR IN');
+        for(const clave in persona){
+            console.log(`Clave: ${clave}, Valor: ${persona[clave]}`);
+        }
+
+        console.log('\n\nFOR OF: Object.keys()');
+        for(const clave of Object.keys(persona)){
+            console.log(`Clave: ${clave}, Valor: ${persona[clave]}`)
+        }
+
+         console.log('\n\nFOR OF: Object.values()');
+         for(const valor of Object.values(persona)){
+            console.log(`Valor: ${valor}`);
+         }
+
+          console.log('\n\ndo - while');
+         let num = 1;
+         
+         console.log(persona.nombre);
+     
+
+
+         
+
+        console.log('\n\nMAP');
+        // Ejemplo map
+        // map crea un nuevo array con los elementos multiplicado por 2
+        const duplicados = numeros.map(numero => numero * 2);
+        console.log(`Números multiplicados por 2: ${duplicados}`);
+
+        // Ejemplo filter
+        // filter crea un nuevo array con los elementos que pasan el filtro
+        const pares = numeros.filter(numero => numero % 2 === 0);
+        console.log(`Números pares: ${pares}`);
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
