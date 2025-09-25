@@ -147,3 +147,22 @@ input:required{
 /* 31. Entrada inválida: Campo con dato inválido */
 /* 32. Selector de negación: Párrafos que no tienen la clase "destacado" */
 /* 33. Elemento raíz */
+
+/* PSEUDOELEMENTOS */
+
+/* 34. Primera letra del párrafo */
+/* 35. Primera línea del párrafo */
+/* 36. Antes del contenido: Añadir comillas antes del texto */
+/* 37. Después del contenido: Añadir comillas después del texto */
+/* 38. Estilizar el texto seleccionado por el usuario */
+/* 39. Estilizar el placeholder de los campos */
+/* 40. Estilizar los marcadores de lista */
+
+
+/* SELECTORES AVANZADOS */
+
+/* 41. Selector is: Estiliza h1, h2 o h3 cuando son el primer hijo */
+/* 42. Selector where: Similar a :is() pero con especificidad cero */
+/* 43. Selector has: Párrafos que contienen un span */
+/* 44. Selector has con adyacente: Párrafos seguidos por un enlace */
+/* 45. Selector focus-within: Contenedor que tiene un elemento con foco */
