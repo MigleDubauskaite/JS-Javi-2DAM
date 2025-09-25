@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de Selectores Modernos</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>Portal de Noticias</h1>
+    <section id="noticias-destacadas">
+        <h2 class="categoria">Noticias Destacadas</h2>
+        <p>Las noticias más relevantes del momento</p>
+        <ul class="lista-noticias">
+            <li class="noticia">Descubren nuevo planeta habitable</li>
+            <li class="noticia">Avances en energía renovable</li>
+            <li class="noticia">Récord de temperatura mundial</li>
+        </ul>
+        <p>Actualizadas diariamente</p>
+    </section>
+
+    <section id="noticias-deportes">
+        <h2 class="categoria">Noticias Deportivas</h2>
+        <p>La actualidad deportiva más reciente</p>
+        <ul class="lista-noticias">
+            <li class="noticia">Final de la liga de campeones</li>
+            <li class="noticia">Nuevo fichaje estrella</li>
+            <li class="noticia">Resultados de la jornada</li>
+        </ul>
+        <p>Cobertura de todos los deportes</p>
+    </section>
+
+    <footer>
+        <p>Portal de Noticias © 2025</p>
+    </footer>
+
+    <script>
+        // EJERCICIOS CON SELECTORES MODERNOS DEL DOM
+
+        // Ejercicio 1: Acceso a la sección
+        // - Selecciona la sección con id "noticias-deportes" usando querySelector
+        // - Añade un borde rojo de 1px a esta sección
+        // - Muestra su contenido HTML en la consola
+        const noticiasDeportes = document.querySelector('#noticias-deportes');
+        console.log(noticiasDeportes);
+        noticiasDeportes.style.border = '1px solid red';
+
+
+        // Ejercicio 2: Acceso al primer li
+        // - Selecciona el primer elemento li de la página
+        // - Añade un borde azul de 1px a este elemento
+        const primerLi = document.querySelector('li');
+        console.log(primerLi);
+        primerLi.style.border = '1px solid blue';
+
+
+        // Ejercicio 3: Acceso a la clase noticia
+        // - Selecciona el primer elemento con clase "noticia"
+        // - Añade un borde inferior verde de 3px a este elemento
+        const primerElemNoticia = document.querySelector('.noticia');
+        console.log(primerElemNoticia);
+        primerElemNoticia.style.borderBottom = '3px solid green';
+
+
+        // Ejercicio 4: Todos los párrafos
+        // - Selecciona todos los primeros párrafos de cada sección usando querySelectorAll
+        // - Muestra la colección de párrafos en la consola
+        // - Recorre todos los párrafos seleccionados y:
+        //   * Muestra su texto en la consola
+        //   * Aplica negrita (font-weight: bold)
+        const todosPrimerosParrafos = document.querySelectorAll('section p:first-of-type');
+        console.log(todosPrimerosParrafos);
+
+        for (const parrafo of todosPrimerosParrafos) {
+            console.log(parrafo.innerText);
+            parrafo.style.fontWeight = 'bold';
+            parrafo.style.backgroundColor = '#CFF6CF';
+        }
+
+
+        // Ejercicio 5: Los items de la sección deportes
+        // - Selecciona todos los elementos con clase "noticia" dentro de "noticias-deportes"
+        // - Muestra esta colección en la consola
+        // - Recorre estos elementos y:
+        //   * Muestra su texto en la consola
+        //   * Cambia su color a marrón
+        const elementosDeNoticiaDeNoticiasDeportes = document.querySelectorAll('#noticias-deportes .noticia');
+        console.log(elementosDeNoticiaDeNoticiasDeportes);
+
+        for (const elemento of elementosDeNoticiaDeNoticiasDeportes) {
+            console.log(elemento.innerText);
+            elemento.style.color = '#D92027';
+            elemento.style.backgroundColor = '#CFE5CF';
+        }
+
+
+        // Ejercicio 6: Acceder al primer elemento hijo de la sección destacadas y su padre
+        // - Selecciona el primer elemento hijo dentro de "noticias-destacadas"
+        // - Muestra este elemento en la consola
+        // - Aplica un fondo amarillo a este elemento
+        // - Obtén el padre de este elemento
+        // - Muestra el padre en la consola
+        // - Añade un borde azul de 1px al elemento hijo
+        // - Añade un borde verde de 1px al elemento padre
+        const primerElemSeccDestacada = document.querySelector('#noticias-destacadas >*');
+        // > significa el hijo directo 
+        // * significa cualquiera etiqueta
+        // dame todos los hijos directos de este id, sin importar su etiqueta (en este caso solo pedimos el primero)
+        console.log(primerElemSeccDestacada);
+        primerElemSeccDestacada.style.backgroundColor = 'yellow';
+
+        const padreDeH2 = primerElemSeccDestacada.parentElement;
+        console.log(padreDeH2);
+
+        primerElemSeccDestacada.style.border = '10px solid blue';
+        padreDeH2.style.border = '4px solid green';
+
+
+        // Ejercicio 7: Acceder a los elementos hijos del ul en noticias destacadas
+        // - Selecciona el elemento ul con clase "lista-noticias" en "noticias-destacadas"
+        // - Muestra este elemento en la consola
+        // - Accede a sus hijos usando children
+        // - Muestra los hijos en la consola
+        // - Recorre los hijos y muestra su texto
+        const ulDeNoticiasDestacadas = document.querySelector('#noticias-destacadas .lista-noticias');
+        console.log(ulDeNoticiasDestacadas);
+
+        const hijosUlNoticiasDestacadas = ulDeNoticiasDestacadas.children;
+        console.log(hijosUlNoticiasDestacadas);
+
+        for (const hijo of hijosUlNoticiasDestacadas) {
+            console.log(hijo.innerText);
+            hijo.style.color = '#872E1C';
+            hijo.style.fontWeight = 'bold';
+        }
+
+
+        // Ejercicio 8: Acceder a los nodos hermanos del primer li en noticias destacadas
+        // - Selecciona el primer elemento con clase "noticia" en "noticias-destacadas"
+        // - Accede a sus hermanos usando nextElementSibling
+        // - Recorre todos los hermanos en un bucle while
+        // - Muestra cada hermano en la consola
+        const nodosPrimerLiDestacadas = document.querySelectorAll('#noticias-destacadas .noticia');
+        console.log(nodosPrimerLiDestacadas);
+
+        let hermano = nodosPrimerLiDestacadas[0];
+        /* no podemos poner así: let hermano = nodosPrimerLiDestacadas[0].nextElementSibling;
+        porque [0] nos da el primer <li>, luego le pedimos que nos de su hermano siguiente, lo cual ya pasa a ser el segundo <li>. 
+            Entonces al entrar al bucle while la variable hermano apunta al segundo li, por lo cual aplicará estilos solo al 2 y 3
+        */
+        console.log("********");
+
+        while (hermano !== null) {
+            console.log(hermano);
+            hermano.style.backgroundColor = '#ED9728';
+            hermano.style.fontStyle = 'italic';
+            hermano = hermano.nextElementSibling;
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
