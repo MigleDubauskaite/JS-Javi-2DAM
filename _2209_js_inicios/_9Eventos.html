@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+
+    <h1>INTRODUCCIÓN A EVENTOS</h1>
+
+    <button>hbbb</button>
+
+    <h2>Contador Básico</h2>
+    <h3 id="texto">0</h3>
+    <button id="incremento">Incrementar</button>
+
+    <script>
+
+        /*  solo permite un manejador por evento con las primeras 3 opciones: si pongo después otra se sobreescribe y se lea la última. */
+        /* Por tanto, es mejor utilizar addEventListener: RECOMENDADO!! */
+
+        const boton = document.querySelector('button');
+        function saludar() {
+            alert('¡Hola');
+        }
+        boton.addEventListener('click', saludar);
+
+
+        // EJERCICIO: CONTADOR BÁSICO
+
+        const button = document.querySelector('#incremento');
+        let textoInc = document.querySelector('#texto');
+        let contador = 0;
+
+        function incrementar() {
+            contador++;
+            textoInc.innerHTML = `<h3>${contador}</h3>`;
+            console.log(contador);
+
+        }
+        button.addEventListener('click', incrementar);
+
+        /* declaración de variables solo */
+
+        // otra manera de escribirlo:
+        /* 
+        button.addEventListener('click', () => {
+           contador++;
+           texto.innerHTML = <p>${contador}</p>;
+        });
+        */
+
+
+
+
+
+    </script>
+</body>
+
+</html>
