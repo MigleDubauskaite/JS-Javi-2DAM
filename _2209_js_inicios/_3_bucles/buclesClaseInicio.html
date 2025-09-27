@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucles: diferentes tipos</title>
+</head>
+
+<body>
+
+    <h1>BUCLES</h1>
+
+    <script>
+        // Los métodos de array como FOR-EACH, MAP, FILTER ofrecen alternativas más modernas y declarativas para iterar sobre colecciones
+
+
+        // Ejemplo for
+        console.log('\n\nFOR')
+        for (let i = 1; i <= 5; i++) {
+            console.log(`Númeroooo: ${i}`);
+        }
+
+        const numeros = [1, 2, 3, 4, 5];
+
+        // Ejemplo forEach
+        console.log('\n\nFOR EACH =>');
+        console.log(`\nNúmeros: ${numeros} :`);
+
+        numeros.forEach(numero => {
+            console.log(`\nNúmero: ${numero}`);
+        })
+
+        console.log('\n\nFOR OF');
+        for (const num of numeros) {
+            console.log(`Número: ${num}`);
+        }
+
+        console.log('\n\nFOR OF + ENTRIES');
+        for (const [indice, num] of numeros.entries()) {
+            console.log(`Índice: ${indice}, Números: ${num}`);
+        }
+
+        const persona = { nombre: "Ana", edad: 28, ciudad: 'Madrid' };
+
+        console.log('\n\nFOR OF: Object.entries()');
+        for (const [clave, valor] of Object.entries(persona)) {
+            console.log(`Clave: ${clave}, Valor: ${valor}`);
+        }
+
+        console.log('\n\nFOR EACH: Object.entries()');
+        Object.entries(persona).forEach(([clave, valor]) => {
+            console.log(`Clave: ${clave}, Valor: ${valor}`)
+        })
+
+        /* En el for...in, la variable clave no es el valor, sino el nombre de la propiedad del objeto. */
+        console.log('\n\nFOR IN');
+        for (const clave in persona) {
+            console.log(`Clave: ${clave}, Valor: ${persona[clave]}`);
+        }
+
+        console.log('\n\nFOR OF: Object.keys()');
+        for (const clave of Object.keys(persona)) {
+            console.log(`Clave: ${clave}, Valor: ${persona[clave]}`)
+        }
+
+        console.log('\n\nFOR OF: Object.values()');
+        for (const valor of Object.values(persona)) {
+            console.log(`Valor: ${valor}`);
+        }
+
+        console.log('\n\ndo - while');
+        let num = 1;
+
+        console.log(persona.nombre);
+
+        console.log('\n\nMAP');
+        // Ejemplo map
+        // map crea un nuevo array con los elementos multiplicado por 2
+        const duplicados = numeros.map(numero => numero * 2);
+        console.log(`Números multiplicados por 2: ${duplicados}`);
+
+        // Ejemplo filter
+        // filter crea un nuevo array con los elementos que pasan el filtro
+        const pares = numeros.filter(numero => numero % 2 === 0);
+        console.log(`Números pares: ${pares}`);
+    </script>
+</body>
+
+</html>

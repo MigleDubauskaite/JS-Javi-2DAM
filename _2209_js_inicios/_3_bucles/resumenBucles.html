@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resumen: BUCLES</title>
+  </head>
+
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+  /* BODY Y FUENTES */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FFD5D5, #fad0c4);
+    color: #533232;
+    margin: 0;
+    padding: 30px;
+    overflow-x: hidden;
+  }
+
+  /* TITULO PRINCIPAL */
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 10px #ff6fb5, 0 0 20px #ff6fb5, 0 0 30px #ff94c2;
+    margin-bottom: 50px;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+  }
+
+  /* CONTENEDOR DE BLOQUES */
+  .contenedor-bloques {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  /* BLOQUES */
+  .bloque {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    padding: 25px;
+    width: 300px;
+    min-height: 200px;
+    text-align: center;
+    border: 2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 15px rgba(255,111,181,0.3);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeSlide 0.8s forwards;
+  }
+
+  /* Animación secuencial de bloques */
+  .bloque:nth-child(1) { animation-delay: 0.2s; }
+  .bloque:nth-child(2) { animation-delay: 0.4s; }
+  .bloque:nth-child(3) { animation-delay: 0.6s; }
+  .bloque:nth-child(4) { animation-delay: 0.8s; }
+  .bloque:nth-child(5) { animation-delay: 1s; }
+
+  .bloque:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 25px #ff6fb5, 0 0 40px #ff94c2, 0 0 60px #ffb6d9;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ff6fb5;
+  }
+
+  h2 {
+    color: #ffb6d9;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+  }
+
+  p {
+    color: #928282;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+
+  /* TABLAS */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 10px rgba(255,111,181,0.3);
+    animation: fadeSlide 1s ease forwards;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+  }
+
+  th {
+    background: rgba(255,111,181,0.6);
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+  }
+
+  tr:hover {
+    background: rgba(255,111,181,0.3);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+  }
+
+  /* SPANS */
+  span {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background: #ff6fb5;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  span:hover {
+    transform: scale(1.2) rotate(-5deg);
+    background: #ff94c2;
+    box-shadow: 0 0 10px #ff6fb5, 0 0 20px #ff94c2;
+  }
+
+  /* ANIMACIONES */
+  @keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(50px) rotateX(15deg); }
+    100% { opacity: 1; transform: translateY(0) rotateX(0); }
+  }
+
+  @keyframes neonGlow {
+    0% { text-shadow: 0 0 5px #ff6fb5, 0 0 10px #ff6fb5; }
+    50% { text-shadow: 0 0 20px #ff6fb5, 0 0 30px #ff94c2, 0 0 40px #ffb6d9; }
+    100% { text-shadow: 0 0 5px #ff6fb5, 0 0 10px #ff6fb5; }
+  }
+</style>
+
+
+  <body>
+    <h1>BUCLES</h1>
+
+    <div class="contenedor-bloques">
+      <div class="bloque" id="ej1"></div>
+      <div class="bloque" id="ej2"></div>
+      <div class="bloque" id="ej3"></div>
+      <div class="bloque" id="ej4"></div>
+      <div class="bloque" id="ej5"></div>
+    </div>
+
+    <script>
+      function imprimir(title, p, selector) {
+        const id = document.querySelector(selector);
+        id.innerHTML = `<h3>======================== <br> ${title} <br>========================</h3> <p>${p}</p>`;
+      }
+      // 1. FOR clásico
+
+      imprimir(
+        `FOR clásico`,
+        "Crea un array de números del 1 al 10. Usa un for para imprimir solo los números impares. Luego, multiplica cada número por 3 y guarda el resultado en el mismo array.",
+        "#ej1"
+      );
+
+      const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      let t1 = document.querySelector("#ej1");
+
+      for (let i = 1; i <= numeros.length; i++) {
+        t1.innerHTML += `<span>${i} ${i != numeros.length ? "-" : ""} </span>`;
+        console.log(i);
+      }
+
+      // 2. forEach
+
+      imprimir(
+        `forEach`,
+        `Usa forEach para imprimir cada elemento en mayúsculas (si fueran strings). Luego usa forEach para calcular la suma de todos los números del array.`,
+        "#ej2"
+      );
+
+      const letras = ["a", "b", "c", "d", "e", "f", "g"];
+      let t2 = document.querySelector("#ej2");
+
+      for (const letra of letras) {
+        t2.innerHTML += `<span> ${letra.toUpperCase()} </span>`;
+        console.log(letra.toUpperCase());
+      }
+
+      // 3. for...of
+      // Itera un array de nombres y crea un nuevo array con los nombres que empiecen con "A".
+      // Luego imprime índice y valor usando 'entries()'.
+
+      imprimir(
+        "for...of",
+        'Itera un array de nombres y crea un nuevo array con los nombres que empiecen con "A". Luego imprime índice y valor usando entries()',
+        "#ej3"
+      );
+
+      const nombres = ["Ana", "Amelia", "Migle", "Lola", "Anabelle", "Austeja"];
+      let t3 = document.querySelector("#ej3");
+      const nombresA = [];
+
+      for (const nombre of nombres) {
+        if (nombre.startsWith("A")) {
+          nombresA.push(nombre);
+        }
+      }
+      console.log(nombresA);
+
+      let tabla = `<table border="1">
+    <thead>
+      <tr>
+        <th>ÍNDICE</th>
+        <th>VALOR</th>
+      </tr>
+    </thead>
+    <tbody>
+`;
+
+      for (const [indice, valor] of nombresA.entries()) {
+        tabla += `<tr>
+                    <td>${indice}</td>
+                    <td>${valor}</td>
+                </tr>        
+        `;
+      }
+
+      tabla += `</tbody> </table>`;
+      t3.innerHTML += tabla;
+
+      // 4. for...in (objetos)
+      imprimir(
+        `for...in (objetos)`,
+        `Crea un objeto 'auto' con propiedades: marca, modelo, año y color. Imprime todas las propiedades y valores usando for...in.`,
+        "#ej4"
+      );
+
+      const auto = {
+        marca: "Mercedes",
+        modelo: "Clase A",
+        anio: 2020,
+        color: "negro",
+      };
+      let t4 = document.querySelector("#ej4");
+
+      for (const clave in auto) {
+        t4.innerHTML += `<p>Clave: ${clave}, Valor: ${auto[clave]}</p>`;
+      }
+
+      t4.innerHTML +=
+        "<h4>👉 for...in no devuelve pares clave–valor, solo devuelve las propiedades (claves).</h4>";
+
+      // 5. for...of + Object.keys / Object.values / Object.entries
+
+      imprimir(
+        `for...of + Object.keys / Object.values / Object.entries`,
+        `Itera el objeto 'auto' usando:
+         <ul> 
+            <li>a) Object.keys() → imprimir solo las claves</li> 
+            <li>b) Object.values() → imprimir solo los valores</li> 
+            <li>c) Object.entries() → imprimir Clave: Valor</li> 
+        </ul>`,
+        "#ej5"
+      );
+
+      let t51 = document.querySelector("#ej5");
+
+      t51.innerHTML += `<h4>a) Object.keys()</h4>`;
+      for (const clave of Object.keys(auto)) {
+        t51.innerHTML += `Clave: ${clave}<br>`;
+      }
+
+      t51.innerHTML += `<h4>b) Object.values()</h4>`;
+      for (const valor of Object.values(auto)) {
+        t51.innerHTML += `Valor: ${valor} <br>`;
+      }
+
+      t51.innerHTML += `<h4>c) Object.entries()</h4>`;
+      for (const [clave, valor] of Object.entries(auto)) {
+        t51.innerHTML += `Clave: ${clave}, Valor: ${valor}<br>`;
+      }
+
+      // 6. map
+      // Crea un array de precios [10, 20, 30, 40].
+      // a) Aplica un descuento del 10% y guarda en un nuevo array
+      // b) Crea un array de strings y agrega "Hola " delante de cada nombre
+
+      // Tu solución aquí
+
+      // 7. filter
+      // a) Filtra un array de edades [12,17,24,35,65] → mayores de 18
+      // b) Filtra un array de palabras → conservar solo las que tengan más de 5 letras
+
+      // Tu solución aquí
+
+      // 8. forEach + if
+      // Itera un array de números y crea dos arrays: uno con pares y otro con impares usando solo forEach
+
+      // Tu solución aquí
+
+      // 9. map + filter
+      // Crea un array [1,2,3,4,5,6,7,8,9,10].
+      // Multiplica todos los números por 2 (map) y luego filtra los mayores de 10 (filter)
+
+      // Tu solución aquí
+
+      // 10. Comparación de bucles
+      // Repite el ejercicio: imprimir los números mayores de 5 en [1,2,3,6,7,8] usando:
+      // a) for
+      // b) forEach
+      // c) for...of
+      // d) map + filter
+
+      // Tu solución aquí
+    </script>
+  </body>
+</html>
