@@ -140,29 +140,143 @@ input:required{
 }
 
 /* 26. Elemento opcional: Campos no obligatorios */
+input:optional{
+    color: rgb(61, 114, 160);
+}
+
 /* 27. Elemento verificado: Checkbox marcado */
+input[type="checkbox"]:checked {
+  outline: 2px solid rgb(204, 17, 42);   /* borde verde cuando está marcado */
+  accent-color: rgb(205, 23, 123);        /* cambia el color de la marca (en navegadores modernos) */
+}
+
 /* 28. Elemento habilitado: Inputs habilitados */
+input:enabled {
+  border: 2px solid rgb(16, 0, 12);
+  background-color: #b2e8b2;
+}
+
 /* 29. Elemento deshabilitado: Inputs deshabilitados */
+input:disabled,
+button:disabled {
+  border: 2px solid rgb(167, 181, 41);
+  background-color: #ebe6d1;
+  color: #a29d7d;
+}
+
 /* 30. Entrada válida: Campo con dato válido */
+input:valid {
+  border: 2px solid rgb(214, 104, 15);
+  background-color: #ffda90; 
+}
+
 /* 31. Entrada inválida: Campo con dato inválido */
+input:invalid {
+  border: 2px solid rgb(250, 4, 4);
+  background-color: #ffc3c3; /* rojo suave */
+}
+
 /* 32. Selector de negación: Párrafos que no tienen la clase "destacado" */
+p:not(.destacado) {
+  color: rgb(163, 163, 255);
+}
+
 /* 33. Elemento raíz */
+:root {
+  --color-principal: #b6b4b4;  
+  --color-secundario: #b6efce; 
+  font-size: 16px;  
+}
+
+body {
+  background-color: var(--color-principal);
+  color: rgb(5, 11, 56);
+}
+/* :root define variables (--color-principal, --color-secundario) que luego puedes reutilizar con var(--nombre-variable). */
 
 /* PSEUDOELEMENTOS */
 
 /* 34. Primera letra del párrafo */
-/* 35. Primera línea del párrafo */
-/* 36. Antes del contenido: Añadir comillas antes del texto */
-/* 37. Después del contenido: Añadir comillas después del texto */
-/* 38. Estilizar el texto seleccionado por el usuario */
-/* 39. Estilizar el placeholder de los campos */
-/* 40. Estilizar los marcadores de lista */
+p::first-letter {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgb(72, 101, 205);
+}
 
+/* 35. Primera línea del párrafo */
+p::first-line {
+  font-variant: small-caps;
+  color: darkblue;
+}
+/* 36. Antes del contenido: Añadir comillas antes del texto */
+.cita::before {
+  content: "«";
+  color: rgb(38, 46, 212);
+  font-size: 1.5em;
+}
+
+/* 37. Después del contenido: Añadir comillas después del texto */
+.cita::after {
+  content: "»";
+  color: rgb(31, 93, 218);
+  font-size: 1.5em;
+}
+
+/* 38. Estilizar el texto seleccionado por el usuario */
+::selection {
+  background: rgb(215, 239, 245);
+  color: black;
+}
+
+/* 39. Estilizar el placeholder de los campos */
+input::placeholder {
+  color: rgb(62, 29, 162);
+  font-style: italic;
+}
+
+/* 40. Estilizar los marcadores de lista */
+li::marker {
+  color: darkorange;
+  font-size: 1.2em;
+  content: "✔ "; 
+}
 
 /* SELECTORES AVANZADOS */
 
 /* 41. Selector is: Estiliza h1, h2 o h3 cuando son el primer hijo */
+:is(h1, h2, h3):first-child {
+  color: rgb(142, 142, 173);
+  text-transform: uppercase;
+}
+
 /* 42. Selector where: Similar a :is() pero con especificidad cero */
+:where(h1, h2, h3) {
+  background-color: #fbcc8a;
+}
+
 /* 43. Selector has: Párrafos que contienen un span */
+p:has(span) {
+  background-color: #b0b3b6; /* azul muy claro */
+  padding: 2px 5px;
+}
+
 /* 44. Selector has con adyacente: Párrafos seguidos por un enlace */
+p:has(+ a) {
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border-bottom: 2px solid #555;
+}
+
 /* 45. Selector focus-within: Contenedor que tiene un elemento con foco */
+.form-group {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.form-group:focus-within {
+  background-color: #fff8dc;
+  border-left: 4px solid orange;
+}

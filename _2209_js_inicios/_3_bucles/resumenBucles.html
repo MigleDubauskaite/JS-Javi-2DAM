@@ -6,143 +6,165 @@
     <title>Resumen: BUCLES</title>
   </head>
 
- <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-  /* BODY Y FUENTES */
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #FFD5D5, #fad0c4);
-    color: #533232;
-    margin: 0;
-    padding: 30px;
-    overflow-x: hidden;
-  }
+    /* BODY Y FUENTES */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffd5d5, #fad0c4);
+      color: #533232;
+      margin: 0;
+      padding: 30px;
+      overflow-x: hidden;
+    }
 
-  /* TITULO PRINCIPAL */
-  h1 {
-    font-size: 3rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 0 0 10px #ff6fb5, 0 0 20px #ff6fb5, 0 0 30px #ff94c2;
-    margin-bottom: 50px;
-    animation: neonGlow 1.5s ease-in-out infinite alternate;
-  }
+    /* TITULO PRINCIPAL */
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 10px #ff6fb5, 0 0 20px #ff6fb5, 0 0 30px #ff94c2;
+      margin-bottom: 50px;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
+    }
 
-  /* CONTENEDOR DE BLOQUES */
-  .contenedor-bloques {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
+    /* CONTENEDOR DE BLOQUES */
+    .contenedor-bloques {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
 
-  /* BLOQUES */
-  .bloque {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 25px;
-    padding: 25px;
-    width: 300px;
-    min-height: 200px;
-    text-align: center;
-    border: 2px solid rgba(255,255,255,0.2);
-    box-shadow: 0 0 15px rgba(255,111,181,0.3);
-    transition: all 0.5s ease;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeSlide 0.8s forwards;
-  }
+    /* BLOQUES */
+    .bloque {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 25px;
+      padding: 25px;
+      width: 300px;
+      min-height: 200px;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 15px rgba(255, 111, 181, 0.3);
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeSlide 0.8s forwards;
+    }
 
-  /* Animación secuencial de bloques */
-  .bloque:nth-child(1) { animation-delay: 0.2s; }
-  .bloque:nth-child(2) { animation-delay: 0.4s; }
-  .bloque:nth-child(3) { animation-delay: 0.6s; }
-  .bloque:nth-child(4) { animation-delay: 0.8s; }
-  .bloque:nth-child(5) { animation-delay: 1s; }
+    /* Animación secuencial de bloques */
+    .bloque:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .bloque:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .bloque:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    .bloque:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+    .bloque:nth-child(5) {
+      animation-delay: 1s;
+    }
 
-  .bloque:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 0 25px #ff6fb5, 0 0 40px #ff94c2, 0 0 60px #ffb6d9;
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ff6fb5;
-  }
+    .bloque:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 25px #ff6fb5, 0 0 40px #ff94c2, 0 0 60px #ffb6d9;
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #ff6fb5;
+    }
 
-  h2 {
-    color: #ffb6d9;
-    margin-bottom: 15px;
-    transition: color 0.3s ease;
-  }
+    h2 {
+      color: #ffb6d9;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
 
-  p {
-    color: #928282;
-    margin-bottom: 15px;
-    font-size: 1rem;
-  }
+    p {
+      color: #928282;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
 
-  /* TABLAS */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0;
-    border-radius: 12px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.1);
-    box-shadow: 0 0 10px rgba(255,111,181,0.3);
-    animation: fadeSlide 1s ease forwards;
-  }
+    /* TABLAS */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px rgba(255, 111, 181, 0.3);
+      animation: fadeSlide 1s ease forwards;
+    }
 
-  th, td {
-    padding: 10px;
-    text-align: center;
-    color: #fff;
-  }
+    th,
+    td {
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+    }
 
-  th {
-    background: rgba(255,111,181,0.6);
-    font-weight: 600;
-  }
+    th {
+      background: rgba(255, 111, 181, 0.6);
+      font-weight: 600;
+    }
 
-  tr:nth-child(even) {
-    background: rgba(255,255,255,0.05);
-  }
+    tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.05);
+    }
 
-  tr:hover {
-    background: rgba(255,111,181,0.3);
-    transform: scale(1.02);
-    transition: all 0.3s ease;
-  }
+    tr:hover {
+      background: rgba(255, 111, 181, 0.3);
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+    }
 
-  /* SPANS */
-  span {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px 10px;
-    background: #ff6fb5;
-    color: #fff;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s;
-  }
+    /* SPANS */
+    span {
+      display: inline-block;
+      margin: 5px;
+      padding: 5px 10px;
+      background: #ff6fb5;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
 
-  span:hover {
-    transform: scale(1.2) rotate(-5deg);
-    background: #ff94c2;
-    box-shadow: 0 0 10px #ff6fb5, 0 0 20px #ff94c2;
-  }
+    span:hover {
+      transform: scale(1.2) rotate(-5deg);
+      background: #ff94c2;
+      box-shadow: 0 0 10px #ff6fb5, 0 0 20px #ff94c2;
+    }
 
-  /* ANIMACIONES */
-  @keyframes fadeSlide {
-    0% { opacity: 0; transform: translateY(50px) rotateX(15deg); }
-    100% { opacity: 1; transform: translateY(0) rotateX(0); }
-  }
+    /* ANIMACIONES */
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) rotateX(15deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+      }
+    }
 
-  @keyframes neonGlow {
-    0% { text-shadow: 0 0 5px #ff6fb5, 0 0 10px #ff6fb5; }
-    50% { text-shadow: 0 0 20px #ff6fb5, 0 0 30px #ff94c2, 0 0 40px #ffb6d9; }
-    100% { text-shadow: 0 0 5px #ff6fb5, 0 0 10px #ff6fb5; }
-  }
-</style>
-
+    @keyframes neonGlow {
+      0% {
+        text-shadow: 0 0 5px #ff6fb5, 0 0 10px #ff6fb5;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff6fb5, 0 0 30px #ff94c2, 0 0 40px #ffb6d9;
+      }
+      100% {
+        text-shadow: 0 0 5px #ff6fb5, 0 0 10px #ff6fb5;
+      }
+    }
+  </style>
 
   <body>
     <h1>BUCLES</h1>
@@ -153,6 +175,11 @@
       <div class="bloque" id="ej3"></div>
       <div class="bloque" id="ej4"></div>
       <div class="bloque" id="ej5"></div>
+      <div class="bloque" id="ej6"></div>
+      <div class="bloque" id="ej7"></div>
+      <div class="bloque" id="ej8"></div>
+      <div class="bloque" id="ej9"></div>
+      <div class="bloque" id="ej10"></div>
     </div>
 
     <script>
@@ -193,8 +220,6 @@
       }
 
       // 3. for...of
-      // Itera un array de nombres y crea un nuevo array con los nombres que empiecen con "A".
-      // Luego imprime índice y valor usando 'entries()'.
 
       imprimir(
         "for...of",
@@ -287,37 +312,123 @@
       }
 
       // 6. map
-      // Crea un array de precios [10, 20, 30, 40].
-      // a) Aplica un descuento del 10% y guarda en un nuevo array
-      // b) Crea un array de strings y agrega "Hola " delante de cada nombre
+      imprimir(
+        "map",
+        'Crea un array de precios [10, 20, 30, 40]. <ul> <li>a) Aplica un descuento del 10% y guarda en un nuevo array</li> <li>b) Crea un array de strings y agrega "Hola " delante de cada nombre</li> </ul>',
+        "#ej6"
+      );
 
-      // Tu solución aquí
+      const precios = [10, 20, 30, 40];
+      const precios10Porc = precios.map((valor) => valor - valor * 0.1);
+
+      t6 = document.querySelector("#ej6");
+      t6.innerHTML += `<h3>a)</h3><p>Precios nuevos: ${precios10Porc}</p>`;
+
+      const nombresC = ["Susana", "Luna", "Chloe", "Zoe"];
+
+      const nombresH = nombresC.map((nombre) => " Hola " + nombre);
+      console.log(nombresH);
+      t6.innerHTML += `<h3>b)</h3><p>Saludos: ${nombresH}</p>`;
 
       // 7. filter
-      // a) Filtra un array de edades [12,17,24,35,65] → mayores de 18
-      // b) Filtra un array de palabras → conservar solo las que tengan más de 5 letras
 
-      // Tu solución aquí
+      imprimir(
+        "filter",
+        "<ul> <li>a) Filtra un array de edades [12,17,24,35,65] → mayores de 18</li> <li>b) Filtra un array de palabras → conservar solo las que tengan más de 5 letras</li> </ul>",
+        "#ej7"
+      );
+
+      t7 = document.querySelector("#ej7");
+      const edades = [12, 17, 24, 35, 65];
+      const mayores = edades.filter((edad) => edad > 18);
+
+      t7.innerHTML += `<h3>a)</h3><p>Mayores de 18: ${mayores}</p>`;
+
+      const palabras = ["humanidad", "calma", "tranquilidad", "paz"];
+      const masDe5Letras = palabras.filter((letra) => letra > 5);
+
+      t7.innerHTML += `<h3>b)</h3><p>Palabras que tienen más de 5 letras: ${masDe5Letras}</p>`;
 
       // 8. forEach + if
-      // Itera un array de números y crea dos arrays: uno con pares y otro con impares usando solo forEach
 
-      // Tu solución aquí
+      imprimir(
+        "forEach + if",
+        "Itera un array de números y crea dos arrays: uno con pares y otro con impares usando solo forEach",
+        "#ej8"
+      );
+
+      t8 = document.querySelector("#ej8");
+
+      const numerosT = [1, 3, 6, 7, 44, 34, 33, 101];
+      const pares = [];
+      const impares = [];
+
+      for (const num of numerosT) {
+        if (num % 2 == 0) {
+          pares.push(num);
+        } else {
+          impares.push(num);
+        }
+      }
+
+      t8.innerHTML += `Pares: ${pares} <br> Impares: ${impares}`;
 
       // 9. map + filter
-      // Crea un array [1,2,3,4,5,6,7,8,9,10].
-      // Multiplica todos los números por 2 (map) y luego filtra los mayores de 10 (filter)
 
-      // Tu solución aquí
+      imprimir(
+        "map + filter",
+        "<ol><li>Crea un array [1,2,3,4,5,6,7,8,9,10].</li> <li>Multiplica todos los números por 2 (map) y luego filtra los mayores de 10 (filter)</li> </ol>",
+        "#ej9"
+      );
+
+      t9 = document.querySelector("#ej9");
+
+      const numerosM = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      /*       const numerosDuplicados = numerosM.map((num) => num * 2);
+      const numerosDuplMay = numerosDuplicados.filter((num) => num > 10); */
+
+      const numerosFiltrados = numerosM
+        .map((num) => num * 2)
+        .filter((num) => num > 10);
+      t9.innerHTML += `Numeros filtrados: ${numerosFiltrados}`;
 
       // 10. Comparación de bucles
-      // Repite el ejercicio: imprimir los números mayores de 5 en [1,2,3,6,7,8] usando:
-      // a) for
-      // b) forEach
-      // c) for...of
-      // d) map + filter
 
-      // Tu solución aquí
+      imprimir(
+        "Comparación de bucles",
+        "Repite el ejercicio: imprimir los números mayores de 5 en [1,2,3,6,7,8] usando: <ul> <li>a) for</li> <li>b) forEach</li> <li>c) for...of</li> <li>d) map + filter</li> </ul> ",
+        "#ej10"
+      );
+
+      t10 = document.querySelector("#ej10");
+      const numerosF = [1, 2, 3, 6, 7, 8];
+
+      t10.innerHTML += "<br><h3>a) for</h3>";
+      for (let i = 0; i < numerosF.length; i++) {
+        if (numerosF[i] > 5) {
+          t10.innerHTML += `${numerosF[i]} `;
+        }
+      }
+
+      t10.innerHTML += "<br><h3>b)forEach</h3>";
+      numerosF.forEach((num) => {
+        if (num > 5) {
+          t10.innerHTML += `${num} `;
+        }
+      });
+
+      t10.innerHTML += "<br><h3>c) for...of</h3>";
+      for (let num of numerosF) {
+        if (num > 5) {
+          t10.innerHTML += `${num} `;
+        }
+      }
+
+      t10.innerHTML += "<br><h3>d) map + filter</h3>";
+      numerosF
+        .filter((num) => num > 5)
+        .map((num) => (t10.innerHTML += `${num} `));
     </script>
   </body>
 </html>

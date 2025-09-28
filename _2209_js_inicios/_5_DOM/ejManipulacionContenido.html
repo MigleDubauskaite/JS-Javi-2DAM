@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulación de contenido</title>
+  </head>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #eaeaea;
+    }
+    td:th-of-type(2){
+        width: auto;
+    }
+    
+  </style>
+  <body>
+    <h1></h1>
+    <table id="mi-tabla">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Ciudad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alicia</td>
+          <td>25</td>
+          <td>Madrid</td>
+        </tr>
+        <tr>
+          <td>Juan</td>
+          <td>30</td>
+          <td>Sevilla</td>
+        </tr>
+        <tr>
+          <td>Pedro</td>
+          <td>43</td>
+          <td>Sevilla</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      // Ejemplo 0: Background de fondo de las celda de la edad de las personas de Sevilla
+      const rows = document.querySelectorAll("#mi-tabla>tbody>tr");
+      console.log(rows);
+      /* EXPLICACIÓN: 
+        - #mi-seleccionamos la tabla 
+        - >tbody - seleccionamos el hijo directo de la tabla (el tbody)
+        - >tr  - selecciomos cada fila dentro de tbody
+        - ROWS = una lista de todas las filas dentro de tbody
+      */
+      
+      for(const row of rows){
+        const celdaEdad = row.querySelector('td:nth-of-type(2)');
+        celdaEdad.style.backgroundColor = 'red';
+      }
+
+      /* EXPLICACIÓN:
+        - td -- selecciona una celda dentro de la fila (fila=tr)
+        - :nth-of-type(2) --- significa la segunda celda de esa fila (porque Edad es la columna 2).
+        - celdaEdad = celda de la columna EDAD en esa fila.
+      */
+
+
+      // Ejemplo 1: Añadir título a la página usando textContent
+      // Seleccionamos el elemento h1 vacío y le añadimos un título
+
+      const titulo = document.querySelector('h1');
+      titulo.textContent = 'TABLA ';
+
+      // Ejemplo 2: Modificar contenido de celdas con información de una ciudad específica
+      // Usamos textContent para añadir un prefijo a todas las personas de Madrid
+      
+
+      // Ejemplo 3: Uso de innerHTML para añadir formato HTML a celdas específicas
+      // Agregamos estilo a las celdas de las personas mayores de 35 años
+
+      // Ejemplo 4: Añadir un contador de filas usando innerHTML
+      // Seleccionamos todas las filas y añadimos un contador al inicio
+
+      // Ejemplo 5: Extraer y mostrar un resumen usando textContent
+      // Creamos un elemento para mostrar el resumen de la tabla
+
+      // Ejemplo 6: Comparación entre textContent e innerText
+      // Creamos una celda con contenido parcialmente oculto para mostrar la diferencia
+
+      // Ejemplo 7: Buscar y reemplazar texto en múltiples elementos
+      // Cambiamos "Sevilla" por "Sevilla (Andalucía)" en todas las celdas
+    </script>
+  </body>
+</html>

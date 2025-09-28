@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejemplo Visual de Selectores CSS</title>
+<style>
+/* GENERAL */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* 1. Selector de elemento */
+p {
+    color: #34495e;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* 2. Selector de clase */
+.destacado {
+    color: #e74c3c;
+    background-color: #fdecea;
+    font-weight: bold;
+    border-left: 4px solid #e74c3c;
+}
+
+/* 3. Selector de ID */
+#unico {
+    color: #27ae60;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #eafaf1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 4. Selector universal */
+* {
+    box-sizing: border-box;
+}
+
+/* 5. Selector de atributo */
+a[href] {
+    text-decoration: none;
+    color: #2980b9;
+    transition: color 0.3s;
+}
+
+/* 6. Selector de atributo con valor exacto */
+a[href$=".pdf"] {
+    font-weight: bold;
+    color: #8e44ad;
+}
+
+/* 7. Selector de atributo que comienza con */
+a[href^="https"] {
+    border-bottom: 2px dashed #3498db;
+}
+
+/* 8. Selector de atributo que contiene */
+a[href*="ejemplo"] {
+    background-color: #fff9c4;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* 9. Selector de idioma */
+[lang|="en"] {
+    font-style: italic;
+}
+
+/* COMBINADORES */
+
+/* 10. Selector descendiente */
+div.contenedor p {
+    background-color: #dff9fb;
+}
+
+/* 11. Selector hijo directo */
+div.padre > p {
+    border-left: 3px solid #f39c12;
+    padding-left: 8px;
+}
+
+/* 12. Selector adyacente */
+h3 + p {
+    font-style: italic;
+}
+
+/* 13. Selector de hermanos generales */
+h3 ~ p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* 14. Selectores múltiples */
+h1, h2, h3 {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* PSEUDOCLASES */
+a:hover { color: #e67e22; }
+a:active { color: #c0392b; }
+a:visited { color: #7f8c8d; }
+
+input:focus {
+    outline: 2px solid #2980b9;
+    background-color: #ecf6fd;
+}
+
+li:first-child { font-weight: bold; }
+li:last-child { font-style: italic; }
+li:nth-child(even) { background-color: #f2f2f2; }
+li:nth-child(odd) { background-color: #e9ecef; }
+
+/* PSEUDOELEMENTOS */
+p::first-letter {
+    font-size: 22px;
+    color: #c0392b;
+    font-weight: bold;
+}
+
+p::before { content: "«"; color: #95a5a6; }
+p::after { content: "»"; color: #95a5a6; }
+
+::selection { background-color: #ffeaa7; color: #2d3436; }
+input::placeholder { color: #bdc3c7; font-style: italic; }
+li::marker { color: #e74c3c; font-size: 18px; }
+
+/* SELECTORES AVANZADOS */
+p:has(span) { background-color: #fff3e0; padding: 5px; border-radius: 4px; }
+p:has(+ a) { border: 1px dashed #2ecc71; padding: 5px; border-radius: 4px; }
+div:focus-within { background-color: #d6eaf8; padding: 10px; border-radius: 5px; }
+
+</style>
+</head>
+<body>
+
+<h1>Encabezado H1</h1>
+<h2>Encabezado H2</h2>
+<h3>Encabezado H3</h3>
+
+<div class="contenedor">
+    <p>Este es un párrafo dentro de <b>div.contenedor</b>.</p>
+    <p class="destacado">Párrafo destacado dentro de contenedor.</p>
+</div>
+
+<div class="padre">
+    <p>Hijo directo de div.padre</p>
+    <p id="unico">Hijo directo con ID único</p>
+</div>
+
+<p>Otro párrafo fuera de contenedores</p>
+<p><span>Este párrafo contiene un span</span></p>
+<p>Este párrafo es seguido por <a href="#">un enlace</a></p>
+
+<ul>
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>
+    <li>Elemento 3</li>
+    <li>Elemento 4</li>
+</ul>
+
+<a href="documento.pdf">Enlace a PDF</a><br>
+<a href="https://externo.com">Enlace externo</a><br>
+<a href="https://ejemplo.com">Enlace ejemplo</a><br>
+<a href="#">Enlace normal</a>
+
+<form>
+    <input type="text" placeholder="Campo opcional">
+    <input type="text" placeholder="Campo requerido" required>
+    <input type="checkbox" checked>
+    <input type="text" value="dato válido" pattern="dato válido">
+    <input type="text" value="dato inválido" pattern="dato válido">
+    <input type="text" disabled placeholder="Deshabilitado">
+</form>
+
+<div lang="en">Este texto está en inglés (estilizado)</div>
+<div></div> <!-- div vacío -->
+
+</body>
+</html>
