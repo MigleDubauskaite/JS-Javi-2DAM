@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>propagación de eventos</title>
+    <title>Document</title>
     <style>
         #inner {
             border: 1px solid red;
@@ -20,7 +20,6 @@
     </style>
 </head>
 <body>
-    <h1>PROPAGACIÓN DE EVENTOS</h1>
     <div id="outer">
         <div id="inner">
           <button id="button">Clic</button>
@@ -32,10 +31,16 @@ const outer = document.getElementById('outer');
 const inner = document.getElementById('inner');
 const button = document.getElementById('button');
 
+// Fase de captura (tercer parámetro true)
+outer.addEventListener('click', () => console.log('Outer - Captura'), true);
+inner.addEventListener('click', () => console.log('Inner - Captura'), true);
+button.addEventListener('click', () => console.log('Button - Captura'), true);
+
 // Fase de burbujeo (predeterminado)
-outer.addEventListener('click', () => console.log('Outer - Burbujeo'), true);
-inner.addEventListener('click', () => console.log('Inner - Burbujeo'), true);
-button.addEventListener('click', () => console.log('Button - Burbujeo'), true);
+outer.addEventListener('click', () => console.log('Outer - Burbujeo'));
+inner.addEventListener('click', () => console.log('Inner - Burbujeo'));
+button.addEventListener('click', () => console.log('Button - Burbujeo'));
+
 
       </script>
 </body>
