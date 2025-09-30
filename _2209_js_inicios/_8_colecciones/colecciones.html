@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colecciones en JS</title>
+</head>
+
+<body>
+    <h1>Colecciones en JavaScript</h1>
+
+    <section id="uno">
+        <h2>Colecciones: introducción</h2>
+        <p>
+            Son estructuras que permiten almacenar, organizar y manipular datos.
+        </p>
+        <br />
+    </section>
+
+    <section id="dos">
+        <h2>Array: resumen</h2>
+    </section>
+
+    <section id="entrenamiento">
+
+        <h2>Entrenamiento: diccionario de programación con Map</h2>
+        <p>Crear un diccionario simple de términos de programación utilizando Map para almacenar pares de término-definición.</p>
+
+    </section>
+
+    <script>
+        const t1 = document.querySelector('#dos');
+        const frutas = ["manzana", "banana", "naranja"];
+        t1.innerHTML = `${frutas}`;
+
+        //
+        const entrenamiento = document.querySelector('#entrenamiento');
+
+        const diccionarioProgramacion = new Map();
+
+        diccionarioProgramacion.set('Algoritmo', 'Conjunto de pasos ordenados y finitos que permiten resolver un problema o realizar una tarea específica de manera lógica y estructurada.');
+        diccionarioProgramacion.set('Variable', 'Espacio en memoria que se utiliza para guardar información que puede cambiar durante la ejecución de un programa.');
+        diccionarioProgramacion.set('Clase', 'Plantilla que define las características y comportamientos de un objeto en la programación orientada a objetos.');
+        diccionarioProgramacion.set('Función', 'Bloque de código reutilizable que realiza una acción específica cuando se le llama.');
+        diccionarioProgramacion.set('Objeto', 'Entidad que agrupa datos (propiedades) y comportamientos (métodos), permitiendo modelar elementos del mundo real dentro de un programa.');
+        
+        const termino = diccionarioProgramacion.get('Algoritmo');
+        entrenamiento.innerHTML += `<ul><li>Consulta la definición de un término específico. <br><br><span> ${termino}</span></li></ul> `;
+
+        const nuevoTermino = diccionarioProgramacion.set('Nuevo termino', 'Holaaa');
+        
+        //
+        entrenamiento.innerHTML += `<ul><li>Añade un nuevo término al diccionario.<br><br><span></span></li></ul> `;
+        const parrafo = document.createElement('p');
+        parrafo.innerText = diccionarioProgramacion.get('Nuevo termino');
+        entrenamiento.append(parrafo);
+       // parrafo.append(diccionarioProgramacion.get('Nuevo termino'));
+        //entrenamiento.innerHTML += diccionarioProgramacion.get('Nuevo termino') + ' <br>';
+
+        for(const key of diccionarioProgramacion.keys()){
+            entrenamiento.innerHTML += (`${key}, `);
+        }
+
+        //
+        const definicionActualizada = diccionarioProgramacion.set('Nuevo termino', 'MMMMMMM');
+        entrenamiento.innerHTML += `<ul><li>Actualiza la definición de un término existente. <br> <br> <span>${definicionActualizada.get('Nuevo termino')}</span></li></ul> `;
+
+        
+        //
+        const eliminado = diccionarioProgramacion.delete('Algoritmo');
+        entrenamiento.innerHTML += `<ul><li>Elimina un término del diccionario.</li> ${eliminado ? 'se eliminó' : 'no se eliminó'}</ul>`;
+
+
+
+
+    </script>
+</body>
+
+</html>
