@@ -173,8 +173,26 @@
 
 
       const titulo7 = document.createElement('h3');
-      const HTMLTexto = document.querySelector('#treeOrdenado');
-      titulo7.innerText = 'Listado de palabras únicas en orden inverso';
+      const HTMLTexto7 = document.querySelector('#treeOrdenado');
+      titulo7.innerText = 'Listado de palabras únicas en orden inverso \n=======================';
+      HTMLTexto7.append(titulo7);
+
+      
+      function treeSetPalabrasOrdenadasInversas(palabras){
+        let setPalabrasOrdenadasInversas = new Set(palabras);
+        const set = [...setPalabrasOrdenadasInversas].sort((a, b) => a - b);
+
+        contadorPalabrasUnicas = 0;
+
+        for(const palabra of palabras){
+          if(!setPalabrasOrdenadasInversas.has(palabra)){
+            setPalabrasOrdenadasInversas.set(palabra, setPalabrasOrdenadasInversas.get(palabra) + 1);
+          } else {
+            setPalabrasOrdenadasInversas.set(palabra, 1);s
+          }
+          contadorPalabrasUnicas++;
+        }
+      }
 
 
     </script>
