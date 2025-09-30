@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrenamiento: colecciones para un cuento</title>
+  </head>
+
+  <body>
+    <h1>Entrenamiento: colecciones para un cuento</h1>
+
+    <div id="cuento"></div>
+    <div id="palabras"></div>
+    <div id="palabrasUnicas"></div>
+    <div id="treeSet"></div>
+    <div id="mapa"></div>
+    <div id="mapaOrdenada"></div>
+    <div id="treeOrdenado"></div>
+
+    <script>
+      // Función para obtener el cuento
+      function obtenerCuento() {
+        return `El cuento de la lechera.
+                Una joven lechera llevaba en la cabeza un cubo de leche que acababa de ordeñar.
+                Caminaba con paso ligero pensando en lo que haría con el dinero cuando vendiera la leche.
+                "Compraré huevos", pensó la lechera, "y cuando los pollitos crezcan, venderé los pollos.
+                Con ese dinero podré comprar un vestido nuevo para lucirlo en la fiesta del pueblo.
+                Seguro que cuando me vean con él, todos los jóvenes me mirarán y podré elegir al que más me guste."
+                Pensando en esto, la lechera comenzó a dar saltos de alegría. El cubo se cayó, y toda la leche se derramó por el suelo.
+                Sin leche, sin huevos, sin pollos, sin vestido y sin pretendientes.
+                La lechera aprendió que no debemos contar con algo antes de tenerlo.
+                Durante el camino de vuelta, la lechera lamentó lo ocurrido, pero luego pensó que lo mejor era seguir adelante con optimismo.
+                El fracaso de sus planes la hizo reflexionar y ser más precavida en el futuro.
+                Con el tiempo, la lechera prosperó gracias a su esfuerzo y perseverancia, aunque nunca volvió a fantasear con lo que aún no tenía.`;
+      }
+
+      function devuelvePalabras(texto) {
+        texto = texto.replaceAll(".", "");
+        texto = texto.replaceAll(",", "");
+        texto = texto.replaceAll("\n", "");
+        let palabras = texto.split(" ");
+        palabras = palabras.filter((p) => p !== "");
+        return palabras;
+      }
+
+      const html = document.querySelector("#cuento");
+      let cuento = obtenerCuento();
+      let cuentoModificado = devuelvePalabras(cuento);
+
+      const texto = document.createElement("p");
+      texto.innerText = cuentoModificado.join(" ");
+      html.append(texto);
+
+      const htmlFormato = document.querySelector("#palabras");
+      const titulo2 = document.createElement("h2");
+      titulo2.innerText = "Array de palabras \n==============";
+      htmlFormato.append(titulo2);
+
+      function arrayPalabras(palabras) {
+        for (const palabra of palabras) {
+          htmlFormato.append(`[${palabra}]`);
+        }
+        htmlFormato.append(document.createElement("br"));
+        htmlFormato.append(
+          `La lista original tiene ${cuentoModificado.length} palabras.`
+        );
+      }
+      arrayPalabras(cuentoModificado);
+
+      const htmlFormato3 = document.querySelector("#palabrasUnicas");
+      const titulo3 = document.createElement("h2");
+      titulo3.innerText = "HashSet de palabras \n================";
+      htmlFormato3.append(titulo3);
+
+      const palabrasUnicas = new Set();
+
+      function hashSetPalabras(palabras) {
+        let contadorPalabrasUnicas = 0;
+        for (const palabra of palabras) {
+          if (!palabrasUnicas.has(palabra)) {
+            palabrasUnicas.add(palabra);
+            if (contadorPalabrasUnicas < 6) {
+              htmlFormato3.append(`[${palabra}] `);
+            }
+            contadorPalabrasUnicas++;
+          }
+        }
+        htmlFormato3.append(document.createElement("br"));
+        htmlFormato3.append(
+          `Lista en HashSet tiene ${palabrasUnicas.size} palabras.`
+        );
+      }
+
+      hashSetPalabras(cuentoModificado);
+
+      const titulo4 = document.createElement("h2");
+      let htmlTexto4 = document.querySelector("#treeSet");
+      titulo4.innerText = "TreeSet de palabras \n================";
+      htmlTexto4.append(titulo4);
+
+      function treeSetPalabras(palabras) {
+        const set = new Set(palabras);
+        const arrayOrdenadoPalabras = [...set].sort();
+        contadorPalabrasUnicas = 0;
+
+        for (const palabra of arrayOrdenadoPalabras) {
+          if (contadorPalabrasUnicas < 5) {
+            htmlTexto4.append(`[${palabra}]`);
+          }
+          contadorPalabrasUnicas++;
+        }
+        htmlTexto4.append(document.createElement("br"));
+        htmlTexto4.append(
+          `Total palabras únicas: ${arrayOrdenadoPalabras.length}`
+        );
+      }
+
+      treeSetPalabras(palabrasUnicas);
+
+      const titulo5 = document.createElement("h3");
+      const htmlTexto5 = document.querySelector("#mapa");
+      titulo5.innerText =
+        "Conteo de repeticiones de palabras \n==========================";
+      htmlTexto5.append(titulo5);
+
+      let conteoPalabras = new Map();
+
+      function mapConteoPalabras(palabras) {
+        for (const palabra of palabras) {
+          if (conteoPalabras.has(palabra)) {
+            conteoPalabras.set(palabra, conteoPalabras.get(palabra) + 1);
+          } else {
+            conteoPalabras.set(palabra, 1);
+          }
+        }
+        for (const [key, value] of conteoPalabras) {
+          htmlTexto5.append(`[${key} (${value})]`);
+        }
+        htmlTexto5.append(document.createElement("br"));
+      }
+
+      mapConteoPalabras(cuentoModificado);
+
+      const titulo6 = document.createElement("h3");
+      const textoHTML6 = document.querySelector("#mapaOrdenada");
+      titulo6.innerText =
+        "Conteo de repeticiones de palabras ordenadas \n===========================================";
+      textoHTML6.append(titulo6);
+
+      let conteoPalabrasOrdenadas = new Map();
+
+      function mapConteoPalabrasOrdenadas(palabras) {
+        const mapaOrdenado = new Map();
+        
+        for (const palabra of palabras) {
+            if (conteoPalabrasOrdenadas.has(palabra)) {
+                conteoPalabrasOrdenadas.set(
+                    palabra,
+                    conteoPalabrasOrdenadas.get(palabra) + 1
+                );
+            } else {
+                conteoPalabrasOrdenadas.set(palabra, 1);
+            }
+        }
+        const ordenadas = [...conteoPalabrasOrdenadas.entries()].sort();
+
+        for (const [key, value] of ordenadas) {
+          textoHTML6.append(`${key} (${value})`);
+        }
+      }
+
+      mapConteoPalabrasOrdenadas(cuentoModificado);
+
+
+      const titulo7 = document.createElement('h3');
+      const HTMLTexto = document.querySelector('#treeOrdenado');
+      titulo7.innerText = 'Listado de palabras únicas en orden inverso';
+
+
+    </script>
+  </body>
+</html>
