@@ -1,99 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cuenta Cuento: Parte 2☀️💪🦁</title>
-  </head>
-  <body>
-    <h1>Cuenta Cuento: Parte 2 ☀️💪🦁</h1>
 
-    <script>
-      // 1: Función para obtener el cuento
-      function obtenerCuento() {
-        return `El
-        cuento de la lechera. Una joven lechera llevaba en la cabeza un cubo de
-        leche que acababa de ordeñar. Caminaba con paso ligero pensando en lo que
-        haría con el dinero cuando vendiera la leche. "Compraré huevos", pensó la
-        lechera, "y cuando los pollitos crezcan, venderé los pollos. Con ese dinero
-        podré comprar un vestido nuevo para lucirlo en la fiesta del pueblo. Seguro
-        que cuando me vean con él, todos los jóvenes me mirarán y podré elegir al
-        que más me guste." Pensando en esto, la lechera comenzó a dar saltos de
-        alegría. El cubo se cayó, y toda la leche se derramó por el suelo. Sin
-        leche, sin huevos, sin pollos, sin vestido y sin pretendientes. La lechera
-        aprendió que no debemos contar con algo antes de tenerlo. Durante el camino
-        de vuelta, la lechera lamentó lo ocurrido, pero luego pensó que lo mejor era
-        seguir adelante con optimismo. El fracaso de sus planes la hizo reflexionar
-        y ser más precavida en el futuro. Con el tiempo, la lechera prosperó gracias
-        a su esfuerzo y perseverancia, aunque nunca volvió a fantasear con lo que
-        aún no tenía.`;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuenta Cuento: Parte 2☀️💪🦁</title>
+</head>
+
+<body>
+  <h1>Cuenta Cuento: Parte 2 ☀️💪🦁</h1>
+
+  <script>
+    // Función para obtener el cuento
+    function obtenerCuento() {
+      return `El cuento de la lechera. Una joven lechera llevaba en la cabeza un cubo de leche que acababa de ordeñar.
+Caminaba con paso ligero pensando en lo que haría con el dinero cuando vendiera la leche.
+"Compraré huevos", pensó la lechera, "y cuando los pollitos crezcan, venderé los pollos.
+Con ese dinero podré comprar un vestido nuevo para lucirlo en la fiesta del pueblo.  
+Seguro que cuando me vean con él, todos los jóvenes me mirarán y podré elegir al que más me guste."
+Pensando en esto, la lechera comenzó a dar saltos de alegría. El cubo se cayó, y toda la leche se derramó por el suelo.
+Sin leche, sin huevos, sin pollos, sin vestido y sin pretendientes. 
+La lechera aprendió que no debemos contar con algo antes de tenerlo. 
+Durante el camino de vuelta, la lechera lamentó lo ocurrido, pero luego pensó que lo mejor era seguir adelante con optimismo.
+El fracaso de sus planes la hizo reflexionar y ser más precavida en el futuro.
+Con el tiempo, la lechera prosperó gracias a su esfuerzo y perseverancia, aunque nunca volvió a fantasear con lo que aún no tenía.`;
+    }
+
+    //2: devuelve palabras: array de strings
+
+    function devuelvePalabras(texto) {
+      texto = texto.replaceAll(/[,.\n"]/g, ' ');
+      let palabras = texto.split(' ');
+      palabras = palabras.filter((p) => p !== "");
+      return palabras;
+    }
+    const arrayCuentoModificado = devuelvePalabras(obtenerCuento());
+    let textoResultado2 = document.createElement("p");
+
+    textoResultado2.innerText = arrayCuentoModificado.join(" ");
+    document.body.append(textoResultado2);
+
+    // 3: array palabras: en formato [][]
+
+    function arrayPalabras(palabras) {
+      for (const palabra of palabras) {
+        document.body.append(`[${palabra}] `);
       }
+      document.body.append(`Palabras en total:  ${palabras.length}`);
+      document.body.innerHTML += "<br><br>";
+    }
+    arrayPalabras(arrayCuentoModificado);
 
-      //2: devuelve palabras: array de strings
+    //4: array list palabras: primeras 5 palabras
+    const arrayListaPalabras = new Array();
+    let contadorPalabras = 0;
 
-      function devuelvePalabras(texto) {
-        texto = texto.replaceAll(/[,.\n]/g, "");
-        let palabras = texto.split(" ");
-        palabras = palabras.filter((p) => p !== "");
-        return palabras;
-      }
-      const arrayCuentoModificado = devuelvePalabras(obtenerCuento());
-      let textoResultado2 = document.createElement("p");
-
-      textoResultado2.innerText = arrayCuentoModificado.join(" ");
-      document.body.append(textoResultado2);
-
-      // 3: array palabras: en formato [][]
-
-      function arrayPalabras(palabras) {
-        for (const palabra of palabras) {
+    function arrayListPalabras(palabras) {
+      for (const palabra of palabras) {
+        arrayListaPalabras.push(palabra);
+        if (contadorPalabras < 5) {
           document.body.append(`[${palabra}] `);
         }
-        document.body.append(`Palabras en total:  ${palabras.length}`);
-        document.body.innerHTML += "<br><br>";
+        contadorPalabras++;
       }
-      arrayPalabras(arrayCuentoModificado);
+      document.body.append(`Palabras en total: ${arrayListaPalabras.length}`);
+      document.body.innerHTML += "<br><br>";
+    }
+    arrayListPalabras(arrayCuentoModificado);
 
-      //4: array list palabras: primeras 5 palabras
-      const arrayListaPalabras = new Array();
-      let contadorPalabras = 0;
+    // 5: hash set palabras: palabras unicas
 
-      function arrayListPalabras(palabras) {
-        for (const palabra of palabras) {
-          arrayListaPalabras.push(palabra);
-          if (contadorPalabras < 5) {
-            document.body.append(`[${palabra}] `);
+    const setPalabrasUnicas = new Set();
+
+    function hashSetPalabras(palabras) {
+      contadorPalabras = 0;
+      for (const palabra of palabras) {
+        if (!setPalabrasUnicas.has(palabra)) {
+          setPalabrasUnicas.add(palabra);
+          document.body.append(`[${palabra}] `);
+          if (contadorPalabras < 6) {
           }
           contadorPalabras++;
         }
-        document.body.append(`Palabras en total: ${arrayListaPalabras.length}`);
-        document.body.innerHTML += "<br><br>";
       }
-      arrayListPalabras(arrayCuentoModificado);
+      document.body.append(`Palabras en total: ${setPalabrasUnicas.size}`);
+      document.body.innerHTML += '<br><br>';
+    }
+    hashSetPalabras(arrayCuentoModificado);
 
-      // 5: hash set palabras: palabras unicas
 
-      const setPalabrasUnicas = new Set();
 
-      function hashSetPalabras(palabras) {
-        contadorPalabras = 0;
-        for (const palabra of palabras) {
-          if (!setPalabrasUnicas.has(palabra)) {
-              setPalabrasUnicas.add(palabra);
-            if (contadorPalabras < 6) {
-              document.body.append(`[${palabra}] `);
-            }
-            contadorPalabras++;
-          }
+    // 6: tree Set Palabras: palabras unicas ordenadas alfabeticamente
+
+    function treeSetPalabras(palabras) {
+      contadorPalabras = 0;
+
+      const setPalabrasUnicasOrdenadas = new Set(palabras);
+      /* Si llamas a sort() sin ninguna función de comparación, los elementos se ordenarán según sus valores de punto de código Unicode */
+      /* localeCompare() compara dos cadenas */
+      const setPalabras = [...setPalabrasUnicasOrdenadas].sort((a, b) => a.localeCompare(b));
+
+      for (const palabra of setPalabras) {
+        if(contadorPalabras < 5){
+
+          document.body.append(`[${palabra}]`);
         }
-        document.body.append(`Palabras en total: ${setPalabrasUnicas.size}`);
+        contadorPalabras++;
       }
-      hashSetPalabras(arrayCuentoModificado);
+      document.body.append(`Palabras en total: ${setPalabras.length}`)
+      document.body.innerHTML += '<br><br>';
 
+    }
+    treeSetPalabras(setPalabrasUnicas);
 
-      // 6: tree Set Palabras
+    // 7: map conteo palabras: cuenta las repeticiones de cada palabra
+    const mapaPalabras = new Map();
+
+    function mapConteoPalabras(palabras){
+      for(const palabra of palabras){
+        if(mapaPalabras.has(palabra)){
+          mapaPalabras.set(palabra, mapaPalabras.get(palabra) + 1);
+        } else {
+          mapaPalabras.set(palabra, 1);
+        }
+      }
       
+      for(const [key, value] of mapaPalabras){
+        document.body.append(`[${key} → ${value} ${value === 1 ? "vez" : "veces"}] `);
+      }
+      document.body.innerHTML += '<br><br>';
+    }
+    mapConteoPalabras(arrayCuentoModificado);
 
-    </script>
-  </body>
+    // 8: map conteo palabras ordenadas: palabras ordenadas con su conteo
+    
+    const mapConteoOrdenado= new Map();
+    
+    function mapConteoPalabrasOrdenadas(palabras){
+      
+      
+      for(const palabra of palabras){
+        if(mapConteoOrdenado.has(palabra)){
+          mapConteoOrdenado.set(palabra, mapConteoOrdenado.get(palabra) + 1);
+        }  else {
+          mapConteoOrdenado.set(palabra, 1);
+        }
+      }
+      
+      const mapaOrdenado = [...mapConteoOrdenado.keys()].sort((a, b) => a.localeCompare(b));
+
+      document.body.append(``);
+
+      console.log(mapaOrdenado)
+
+
+    }
+
+    mapConteoPalabrasOrdenadas(arrayCuentoModificado);
+   
+
+
+  </script>
+</body>
+
 </html>
