@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>PRACTICANDO <span style="color: rgb(138, 111, 228)">Bucles</span></h1>
+
+    <script>
+      // 🔹 EJERCICIO DE BUCLES
+
+      // 1️⃣ Crea un array de números del 1 al 10
+      const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      // 2️⃣ Recorre el array con un bucle for y muestra cada número en consola
+      for(let i = 1; i <= numeros.length; i++){
+        console.log('i=', i);
+      }
+
+      // 3️⃣ Recorre el array con un bucle for...of y muestra cada número en consola
+      for (const num of numeros) {
+        console.log(num);
+      }
+
+      // 4️⃣ Recorre el array con for...of usando entries() e imprime el índice y el valor
+      for(const[indice, value] of numeros.entries()){
+        console.log(`Clave: ${indice}; Valor: ${value}`);
+      }
+
+      // 5️⃣ Crea un objeto "persona" con propiedades: nombre, edad, ciudad, profesion
+      
+
+      // 6️⃣ Recorre las claves del objeto con un bucle for...in e imprime clave y valor
+
+      // 7️⃣ Recorre las claves del objeto usando Object.keys() y for...of, imprime clave y valor
+
+      // 8️⃣ Recorre los valores del objeto usando Object.values() y for...of
+
+      // 9️⃣ Recorre las claves y valores del objeto usando Object.entries() y for...of
+
+      // 🔟 Recorre las claves y valores usando Object.entries() y forEach
+
+      // 11️⃣ Usa un bucle while para mostrar los números del 1 al 5
+
+      // 12️⃣ Usa un bucle do...while para mostrar los números del 1 al 5
+
+      // 13️⃣ Usa forEach sobre el array de números para mostrar cada número
+
+      // 14️⃣ Usa map sobre el array de números para crear un nuevo array con cada número multiplicado por 2
+
+      // 15️⃣ Usa filter sobre el array de números para crear un nuevo array con solo los números pares
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetos</title>
+  </head>
+  <body>
+    <h1>PRACTICANDO <span style="color: rgb(138, 111, 228)">Objetos</span></h1>
+
+    <script>
+      let coche = {
+        marca: "Mercedes",
+        modelo: "clase 200",
+        motor: {
+          tipo: "Diesel",
+          caballos: "150",
+        },
+        arrancar: function () {
+          console.log("El coche ha arrancado");
+        },
+      };
+
+      console.log(coche);
+
+      // añadiendo propiedad
+      coche.color = "Rojo";
+      console.log(coche);
+
+      // borrando propiedad
+      delete coche.color;
+      console.log(coche);
+
+      // usar el objeto
+      coche.arrancar();
+
+      // propiedad calculada
+      coche.descripcion = `El coche es un ${coche.marca} ${coche.modelo} de color ${coche.color} con ${coche.motor.caballos} caballos.`;
+      console.log(coche.descripcion);
+    </script>
+  </body>
+</html>

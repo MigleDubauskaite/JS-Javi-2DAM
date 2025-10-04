@@ -1,34 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist Examen JavaScript</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    .section {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #2980b9;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    .task {
+      margin: 10px 0;
+      display: flex;
+      align-items: flex-start;
+    }
+    .task input {
+      margin-right: 10px;
+      transform: scale(1.2);
+      margin-top: 2px;
+    }
+    .task label {
+      flex: 1;
+    }
+    code {
+      background: #eef;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+  </style>
 </head>
-
 <body>
-    <script>
-        /*
-1. Sabes usar `typeof()` y `console.log()`
-2. Haz una demostración de operación con un Number y un BigInt, demostrando que el resultado es `Number` o `BigInt`.
-3. Explica y pon un ejemplo del uso del operador `…` usado para compresión y descompresión (ambas cosas).
-4. Crea un objeto que modele lo que yo te pida, podrá pedirse: 
-    1. Que tenga datos (incluso objetos) como propiedades.
-    2. Funciones como propiedades.
-    3. Una vez creado añadir una propiedad.
-    4. Borrar una propiedad.
-    5. Usarlo.
-    6. Poner una propiedad calculada.
-5. Cualquier ejemplo similar a **todo** lo que hay en el apartado bucles.
-6. Dado un html simple acceder por selector a uno o varios elementos y cambiarles el color de fondo.
-7. Desde 0: crear un botón, poner un evento con evenlistener de tipo click y hacer que cambie el background de la página cada vez que se pulse. Si se pide hacer que solo se pueda pulsar una vez.
-8. Desde 0: dos botones uno con el 0 y otro con el 1, de forma que se vaya añadiendo una cifra binaria al final de un número que empezará estando en blanco. Los números se irán añadiendo por la izquierda.
-9. Desarrolla una función de orden superior, a petición, será algo sencillo parecido al ejemplo de los apuntes. 
-10. Cualquiera de las opciones con un  ejemplo sencillo a petición del apartado Objetos avanzado
-11. Ejemplo simple que deberás poder desarrollar desde 0 (incluso html), basado en click: apartado evento: incluido explicación de captura, burbujeo, detención de propagación y comportamiento inverso.
-        */
-    </script>
-</body>
+  <h1>📚 Checklist Examen JavaScript</h1>
 
+  <div class="section">
+    <h2>🔹 Fundamentos</h2>
+    <div class="task"><input type="checkbox"><label>Usar <code>typeof()</code> y <code>console.log()</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Demostrar operación con un <code>Number</code> y un <code>BigInt</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo del operador <code>…</code> en compresión (rest) y descompresión (spread).</label></div>
+  </div>
+
+  <div class="section">
+    <h2>🔹 Objetos</h2>
+    <div class="task"><input type="checkbox"><label>Crear objeto con datos y métodos.</label></div>
+    <div class="task"><input type="checkbox"><label>Añadir una propiedad tras su creación.</label></div>
+    <div class="task"><input type="checkbox"><label>Borrar una propiedad.</label></div>
+    <div class="task"><input type="checkbox"><label>Usar una función como propiedad (método).</label></div>
+    <div class="task"><input type="checkbox"><label>Propiedad calculada con corchetes <code>[]</code>.</label></div>
+  </div>
+
+  <div class="section">
+    <h2>🔹 Bucles</h2>
+    <div class="task"><input type="checkbox"><label>Ejemplo con <code>for</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo con <code>while</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo con <code>do…while</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo con <code>for…of</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo con <code>for…in</code>.</label></div>
+  </div>
+
+  <div class="section">
+    <h2>🔹 DOM y Eventos</h2>
+    <div class="task"><input type="checkbox"><label>Acceder a elementos con <code>querySelector</code> y cambiar el fondo.</label></div>
+    <div class="task"><input type="checkbox"><label>Botón que cambia el background de la página con <code>click</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Botón que solo funcione una vez.</label></div>
+    <div class="task"><input type="checkbox"><label>Dos botones (0 y 1) que construyan un número binario (añadir por la izquierda).</label></div>
+  </div>
+
+  <div class="section">
+    <h2>🔹 Funciones de Orden Superior</h2>
+    <div class="task"><input type="checkbox"><label>Función que recibe otra como parámetro.</label></div>
+    <div class="task"><input type="checkbox"><label>Función que devuelve otra función.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo aplicado al ejercicio binario.</label></div>
+  </div>
+
+  <div class="section">
+    <h2>🔹 Objetos Avanzados</h2>
+    <div class="task"><input type="checkbox"><label>Crear un objeto con <code>get</code> y <code>set</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Crear una clase con herencia.</label></div>
+    <div class="task"><input type="checkbox"><label>Explicar el uso de <code>this</code>.</label></div>
+  </div>
+
+  <div class="section">
+    <h2>🔹 Eventos Avanzados</h2>
+    <div class="task"><input type="checkbox"><label>Ejemplo de captura.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo de burbujeo.</label></div>
+    <div class="task"><input type="checkbox"><label>Usar <code>stopPropagation()</code>.</label></div>
+    <div class="task"><input type="checkbox"><label>Ejemplo de comportamiento inverso.</label></div>
+  </div>
+</body>
 </html>

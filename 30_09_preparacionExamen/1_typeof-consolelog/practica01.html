@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>typeof() y console.log()</title>
+  </head>
+  <body>
+    <h1>
+      PRACTICANDO <span style="color: rgb(138, 111, 228)">typeof()</span> y
+      <span style="color: rgb(138, 111, 228)">console.log()</span>
+    </h1>
+
+    <script>
+      console.log(42, "→", typeof 42); // 42 → number
+      console.log("Hola", "→", typeof "Hola"); // Hola → string
+
+      let x = true;
+      console.log(x, "→", typeof x); // true → boolean
+
+      let num = "123";
+      console.log(num, "→", typeof num); // 123 → string
+
+      let y;
+      console.log(y, "→", typeof y); // undefined → undefined
+
+      let nulo = null;
+      console.log(nulo, "→", typeof nulo); // null → object (realmente null es primitivo)
+
+      let arr = [1, 2, 3];
+      console.log(arr, "→", typeof arr); // [1,2,3] → object (arreglo es objeto)
+
+      function saludar() {
+        return "Hola";
+      }
+      console.log(saludar, "→", typeof saludar); // [Function: saludar] → function
+
+      let persona = { nombre: "Ana", edad: 25 };
+      console.log(persona, "→", typeof persona);
+    </script>
+  </body>
+</html>

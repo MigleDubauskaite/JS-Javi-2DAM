@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays y sus métodos</title>
+  </head>
+  <body>
+    <h1>
+      PRACTICANDO <span style="color: rgb(138, 111, 228)">Arrays</span> y
+      <span style="color: rgb(138, 111, 228)">métodos principales</span>
+    </h1>
+
+    <script>
+      let estudiantes = [
+        { nombre: "Ana", edad: 20 },
+        { nombre: "Luis", edad: 22 },
+        { nombre: "Sofía", edad: 19 },
+        { nombre: "Carlos", edad: 21 },
+      ];
+      console.log(estudiantes);
+      for (const est of estudiantes) {
+        console.log(est);
+      }
+
+      // 1️⃣ Agrega un nuevo estudiante al principio del array
+      estudiantes.unshift({ nombre: "Migle", edad: 21 });
+      console.log(estudiantes);
+
+      // 2️⃣ Agrega un nuevo estudiante al final del array
+      estudiantes.push({ nombre: "Vilte", edad: 21 });
+      console.log(estudiantes);
+
+      // 3️⃣ Elimina el primer estudiante del array
+      estudiantes.shift();
+      console.log(estudiantes);
+
+      // 4️⃣ Inserta un estudiante en la segunda posición del array
+      estudiantes.splice(1, 0, {nombre: 'Lola', edad: 36});
+      console.log(estudiantes)
+      //1 → índice donde insertar
+      // 0 → número de elementos a eliminar
+      // {...} → elemento a insertar
+
+      // 5️⃣ Filtra los estudiantes mayores de 20 años y guarda el resultado en un nuevo array
+      let mayores20 = estudiantes.filter((a) => a.edad > 20);
+      console.log(mayores20);
+
+      // 6️⃣ Crea un nuevo array con solo los nombres de todos los estudiantes
+      let nombres = estudiantes.map((n) => n.nombre);
+
+      // 7️⃣ Recorre el array y muestra en consola un mensaje para cada estudiante en el formato: "Nombre tiene X años"
+      for (const estudiante of estudiantes) {
+        console.log(`${estudiante.nombre} tiene ${estudiante.edad} años`);
+      }
+
+      // 8️⃣ Imprime en consola el array original y los arrays generados
+    </script>
+  </body>
+</html>

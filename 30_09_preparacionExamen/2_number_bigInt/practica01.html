@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number & BigInt</title>
+  </head>
+  <body>
+    <h1>
+      PRACTICANDO <span style="color: rgb(138, 111, 228)">Number</span> y
+      <span style="color: rgb(138, 111, 228)">BigInt</span>
+    </h1>
+
+    <script>
+      let numero = 50;
+      let granNumero = 1000000000n;
+
+      let suma = BigInt(numero) + granNumero;
+      console.log("Suma: ", suma, typeof suma);
+      // no se puede mezclar números normales con el bigInt → hay que convertir los tipos
+
+      let resta = Number(granNumero) - numero;
+      console.log("Resta: ", resta, typeof resta);
+
+      let multiplicacion = BigInt(numero) + granNumero;
+      console.log("Multiplicación: ", multiplicacion, typeof multiplicacion);
+    </script>
+  </body>
+</html>
