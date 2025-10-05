@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.6: selectores</title>
+  </head>
+  <body>
+    <h1 style="background-color: aliceblue">
+      1.6 <br />Practicamos SELECTORES
+    </h1>
+
+    <h1 id="titulo-principal">Bienvenido a la tienda</h1>
+
+    <div class="producto">Producto 1</div>
+    <div class="producto">Producto 2</div>
+    <div class="producto">Producto 3</div>
+    <div class="producto">Producto 4</div>
+
+    <p class="oferta">Oferta especial 1</p>
+    <p class="oferta">Oferta especial 2</p>
+
+    <section id="ofertas">
+      <h2>Sección de ofertas</h2>
+      <p class="oferta">Oferta especial dentro de sección</p>
+    </section>
+
+    <h2>Subtítulo 1</h2>
+    <h2>Subtítulo 2</h2>
+
+    <p>Texto con <span>resaltado</span> dentro</p>
+
+    <section id="otros-divs">
+      <div>Div general 1</div>
+      <div>Div general 2</div>
+    </section>
+    <footer>
+      <p>Pie de página</p>
+    </footer>
+
+    <h1>Otro título principal</h1>
+
+    <p class="destacado">Texto destacado en la tienda</p>
+
+    <script>
+      //1
+      document.getElementById("titulo-principal").style.backgroundColor =
+        "yellow";
+
+      //2
+      document.querySelector(".producto").style.backgroundColor = "lightblue";
+
+      // 3
+      document.querySelectorAll(".producto").forEach((el) => {
+        el.style.backgroundColor = "lightgreen";
+      });
+
+      //4
+      document.querySelectorAll("p").forEach((el) => {
+        el.style.backgroundColor = "pink";
+      });
+
+      // 5
+      document.querySelectorAll(".oferta").forEach((el) => {
+        el.style.backgroundColor = "orange";
+      });
+
+      // 6
+      document.querySelector("#ofertas").style.backgroundColor = "lightgray";
+
+      // 7
+      document.querySelectorAll("h2").forEach((el) => {
+        el.style.backgroundColor = "violet";
+      });
+
+      // 8
+      document.querySelectorAll("span").forEach((el) => {
+        el.style.backgroundColor = "cyan";
+      });
+
+      // 9
+      document.querySelectorAll("div").forEach((el) => {
+        el.style.backgroundColor = "beige";
+      });
+
+      // 10
+      document.querySelector("footer p").style.backgroundColor = "lavender";
+
+      // 11
+      document.querySelector(".producto:nth-of-type(2)").style.backgroundColor =
+        "coral";
+
+      // 12
+      document.querySelector(".oferta").style.backgroundColor = "turquoise";
+
+      // 13:
+      document.querySelector(".producto:last-of-type").style.backgroundColor =
+        "salmon";
+
+      // 14
+      document.querySelectorAll("h1").forEach((el) => {
+        el.style.backgroundColor = "peachpuff";
+      });
+
+      // 15
+      document.querySelector(".destacado").style.backgroundColor = "gold";
+
+      // 16
+      document.querySelector(".producto:nth-of-type(3)").style.backgroundColor =
+        "lightcyan";
+
+      // 17:
+      document.querySelectorAll("h2").forEach((el) => {
+        el.style.backgroundColor = "thistle";
+      });
+
+      // 18
+      document.querySelector("div:first-of-type").style.backgroundColor =
+        "aquamarine";
+
+      // 19:
+      document.querySelector(".oferta:nth-of-type(2)").style.backgroundColor =
+        "lightpink";
+
+      // 20
+      document.querySelector("body").style.backgroundColor = "cornsilk";
+    </script>
+  </body>
+</html>

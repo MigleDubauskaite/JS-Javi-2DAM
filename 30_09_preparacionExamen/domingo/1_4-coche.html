@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4: Objeto COCHE</title>
+  </head>
+  <body>
+    <h1 style="background-color: aliceblue">
+      1.4 <br />Creamos un objeto llamado COCHE
+    </h1>
+
+    <script>
+      const coche = {
+        marca: "Toyota",
+        precio: 20_000,
+        motor: {
+          tipo: "gasolina",
+          potencia: 150,
+        },
+        arrancar() {
+          console.log("El coche arranca");
+        },
+      };
+
+      console.log(coche);
+
+      // añadir propiedad:
+      coche.color = "rojo";
+      console.log(coche);
+
+      // añadir propiedad calculada:
+      Object.defineProperty(coche, "precioIVA", {
+        get() {
+          return this.precio * 1.21;
+        },
+      });
+
+      // Object.defineProperty(objeto, nombre-propiedad, descriptor):
+      // no se guarda un valor fijo sino se recalcula cada vez que lo utilizamos (tiene en cuenta el valor cambiante de precio)
+      console.log(coche);
+
+      // eliminar propiedad:
+      delete coche.motor;
+      console.log(coche);
+
+      // llamar a arrancar()
+      coche.arrancar();
+
+      // mostrar precioIVA:
+      console.log(coche.precioIVA);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="background-color: aliceblue">
+      1.6 <br />Practicamos creación de botones: CONSTRUIR NÚMEROS BINARIOS
+    </h1>
+
+    <h3 id="numBinario"></h3>
+    <button id="cero">0</button>
+    <button id="uno">1</button>
+
+    <script>
+      const boton0 = document.querySelector("#cero");
+      const boton1 = document.querySelector("#uno");
+      const numBinario = document.querySelector("#numBinario");
+      let texto = "";
+
+      function add0() {
+        texto += "0";
+        numBinario.textContent = texto;
+      }
+
+      function add1() {
+        texto += "1";
+        numBinario.textContent = texto;
+      }
+
+      boton0.addEventListener("click", add0);
+      boton1.addEventListener("click", add1);
+    </script>
+  </body>
+</html>

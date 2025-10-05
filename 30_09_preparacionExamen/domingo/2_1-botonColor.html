@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1: Crear botón</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: background-color 0.3s;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <h1 style="background-color: aliceblue">
+      1.6 <br />Practicamos creación de botón: CAMBIAR COLOR
+    </h1>
+
+    <!-- crear botón -->
+    <button>CAMBIAR COLOR</button>
+
+    <script>
+      let listaColores = [
+        "lightblue",
+        "lightgreen",
+        "lightyellow",
+        "lightpink",
+        "lavender",
+      ];
+      let fondo = document.querySelector("body");
+
+      let boton = document.querySelector("button");
+      let indice = 0;
+
+      boton.addEventListener("click", function () {
+        fondo.style.backgroundColor = listaColores[indice++];
+        indice = (indice + 1) % listaColores.length;
+      });
+    </script>
+  </body>
+</html>
