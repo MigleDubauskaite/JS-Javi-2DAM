@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const coche = {
+        marca: "Toyota",
+        precio: 20_000,
+        motor: {
+          tipo: "gasolina",
+          potencia: 150,
+        },
+        arrancar() {
+          console.log("El coche arranca");
+        },
+      };
+
+      console.log(coche);
+
+      coche.color = "rojo";
+      console.log(coche.color);
+
+      /* coche.precioIVA = coche.precio + (coche.precio * 0.21);
+        console.log(coche.precio);
+        console.log(coche.precioIVA);
+ */
+      Object.defineProperty(coche, "precioIVA", {
+        get() {
+          return this.precio + this.precio * 0.21;
+        },
+      });
+
+      delete coche.motor;
+      console.log(coche.motor);
+      console.log(coche);
+
+      coche.arrancar();
+      console.log(coche.precioIVA);
+      console.log(coche.precio);
+    </script>
+  </body>
+</html>

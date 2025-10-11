@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador ...</title>
+</head>
+<body>
+
+    <script>
+
+        // es Expansión (spread)
+        const numeros = [10, 20, 30];
+        console.log(numeros);
+
+        const masNumeros = [0, ...numeros, 40, 50];
+        console.log(masNumeros);
+
+        // es agrupación (rest)
+        function sumarTodos(...numeritos){
+            let suma = 0;
+            for(let i = 0; i < numeritos.length; i++){
+                suma += numeritos[i];
+            }
+            console.log(`Suma: ${suma}`);
+        }
+
+        console.log(sumarTodos(3, 8, 7, 12));
+
+    </script>
+    
+</body>
+</html>

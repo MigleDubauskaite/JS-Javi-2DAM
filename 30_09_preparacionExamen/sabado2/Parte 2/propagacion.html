@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propagación</title>
+  </head>
+  <style>
+    #externo {
+      border: 6px solid saddlebrown;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+    }
+
+    #medio {
+      border: 4px solid rgb(89, 226, 142);
+      width: 70px;
+      height: 70px;
+      padding: 20px;
+    }
+
+    #interno {
+      border: 3px solid rgb(155, 83, 210);
+      width: 70px;
+      height: 70px;
+    }
+  </style>
+  <body>
+    <h1>PROPAGACIÓN: OPCIÓN 1</h1>
+
+    <a href="propagacion_opcion2.html">Opción 2</a>
+    <br /><br /><br />
+
+    <div id="externo">
+      <div id="medio">
+        <div id="interno">
+          <button>click</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("Opción 1");
+
+      const externo = document.querySelector("#externo");
+      const medio = document.querySelector("#medio");
+      const interno = document.querySelector("#interno");
+      const boton = document.querySelector("button");
+
+      externo.addEventListener("click", () => {
+        console.log("Externo");
+      });
+
+      medio.addEventListener("click", () => {
+        console.log("Medio");
+      });
+
+      interno.addEventListener("click", () => {
+        console.log("Interno");
+      });
+
+      boton.addEventListener("click", (e) => {
+        console.log("Boton");
+      });
+
+      /*
+
+        CLICK EN BOTÓN:
+        Salida: Boton → Interno → Medio → Externo
+        
+        CLICK EN INTERNO: 
+        Salida: Interno → Medio → Externo
+
+        CLICK EN MEDIO: 
+        Salida: Medio → Externo
+
+        CLICK EN EXTERNO: 
+        Salida: Externo
+
+
+        COMO DETENER LA PROPAGACIÓN: 
+        Para uqe tras clickar en cualquier elemento no se detectara ninguno más, hay que poner e.stopPropagation() al final de cada addEventListener()
+
+        */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Números binarios</title>
+  </head>
+  <body>
+    <div id="num"></div>
+    <button id="cero">0</button>
+    <button id="uno">1</button>
+
+    <script>
+      const boton0 = document.querySelector("#cero");
+      const boton1 = document.querySelector("#uno");
+
+      const texto = document.querySelector("#num");
+
+      boton0.addEventListener("click", () => {
+        texto.innerText += "0";
+      });
+
+      boton1.addEventListener("click", () => {
+        texto.innerText += "1";
+      });
+    </script>
+  </body>
+</html>

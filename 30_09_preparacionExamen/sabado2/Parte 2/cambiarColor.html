@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambiar Color</title>
+  </head>
+
+  <body>
+    <button id="btn">Cambiar Color</button>
+
+    <script>
+      const boton = document.querySelector("#btn");
+      const listaColores = [
+        "lightblue",
+        "lightgreen",
+        "lightyellow",
+        "lightpink",
+        "lavender",
+      ];
+      let indice = 0;
+
+      boton.addEventListener("click", () => {
+        document.body.style.backgroundColor = listaColores[indice++];
+        indice = indice % listaColores.length;
+      });
+    </script>
+  </body>
+</html>

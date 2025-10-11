@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagación</title>
+</head>
+<style>
+    #externo {
+        border: 6px solid rgb(65, 228, 147);
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+    }
+
+    #medio {
+        border: 4px solid rgb(228, 228, 20);
+        width: 70px;
+        height: 70px;
+        padding: 20px;
+    }
+
+    #interno {
+        border: 3px solid rgb(215, 79, 90);
+        width: 70px;
+        height: 70px;
+    }
+</style>
+
+<body>
+
+    <h1>PROPAGACIÓN: OPCIÓN 2</h1>
+
+    <div id="externo">
+        <div id="medio">
+            <div id="interno">
+                <button>click</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        console.log("Opción 2");
+
+        const externo = document.querySelector('#externo');
+        const medio = document.querySelector('#medio');
+        const interno = document.querySelector('#interno');
+        const boton = document.querySelector('button');
+
+        externo.addEventListener('click', () => {
+            console.log('Externo');
+        }, true);
+
+        medio.addEventListener('click', () => {
+            console.log('Medio');
+        }, true);
+
+        interno.addEventListener('click', () => {
+            console.log('Interno');
+        }, true);
+
+        boton.addEventListener('click', (e) => {
+            console.log('Boton');
+
+        }, true);
+
+        /*
+
+        CLICK EN BOTÓN:
+        Salida: Externo → Medio → Interno → Boton
+        
+        CLICK EN INTERNO: 
+        Salida: Externo → Medio → Interno
+
+        CLICK EN MEDIO: 
+        Salida: Externo → Medio
+
+        CLICK EN EXTERNO: 
+        Salida: Externo
+
+
+        COMO DETENER LA PROPAGACIÓN: 
+        Para que tras clickar en cualquier elemento no se detectara ninguno más, hay que poner e.stopPropagation() al final de cada addEventListener()
+
+        */
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
