@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="textoNum"></h3>
+    <button id="cero">0</button>
+    <button id="uno">1</button>
+
+    <script>
+      const boton0 = document.querySelector("#cero");
+      const boton1 = document.querySelector("#uno");
+      const textoNum = document.querySelector("#textoNum");
+
+      boton0.addEventListener("click", () => {
+        textoNum.textContent += "0";
+      });
+
+      boton1.addEventListener("click", () => {
+        textoNum.textContent += "1";
+      });
+    </script>
+  </body>
+</html>

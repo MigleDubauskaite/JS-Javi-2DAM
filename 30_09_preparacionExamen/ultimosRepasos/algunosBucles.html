@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 1
+        for(let i = 1; i <= 10; i++){
+            console.log(i);
+        }
+
+        // 2
+        const frutas = ['manzana', 'pera', 'plátano'];
+        for(const f of frutas){
+            console.log(f);
+        }
+
+        // 3
+        const colores = ['rojo', 'verde', 'azul'];
+        for(const [i, valor] of colores.entries()){
+            console.log(`Posición ${i}: ${valor}`);
+        }
+
+        // 4
+        const libro = { titulo: 'El Quijote', autor: 'Cervantes', año: 1605 };
+        for(const l in libro){
+            console.log(`${l}: ${libro[l]}`);
+        }
+
+        // 8
+        console.log('\n');
+        let num = 5;
+        while(num >= 1){
+            console.log(num);
+            num--;
+        }
+
+        // 9
+        console.log('\n');
+        let num2 = 2;
+        do{
+            console.log(num2)
+            num2 += 2;
+        } while(num2 <= 10);
+
+        
+
+
+    </script>
+</body>
+</html>

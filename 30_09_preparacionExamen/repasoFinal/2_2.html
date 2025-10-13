@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2</title>
+  </head>
+  <body>
+    <h2 id="numero"></h2>
+    <button id="cero">0</button>
+    <button id="uno">1</button>
+
+    <script>
+      const cero = document.querySelector("#cero");
+      const uno = document.querySelector("#uno");
+      const numero = document.querySelector("#numero");
+
+      cero.addEventListener("click", () => {
+        numero.textContent += "0";
+      });
+
+      uno.addEventListener("click", () => {
+        numero.textContent += "1";
+      });
+    </script>
+  </body>
+</html>

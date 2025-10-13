@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.4</title>
+  </head>
+  <style>
+    #externo {
+      border: 8px solid rgb(255, 53, 53);
+      height: 200px;
+      width: 200px;
+    }
+    #medio {
+      border: 6px solid rgb(159, 243, 23);
+      height: 120px;
+      width: 120px;
+      margin: 30px;
+    }
+    #interno {
+      border: 6px solid rgb(34, 237, 224);
+      height: 80px;
+      width: 80px;
+      margin: 12px;
+    }
+    #boton {
+      height: 30px;
+      width: 50px;
+      margin: 15px;
+      background-color: rgb(245, 161, 223);
+    }
+  </style>
+  <body>
+    <div id="externo">
+      <div id="medio">
+        <div id="interno">
+          <button id="boton">Click</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const externo = document.querySelector("#externo");
+      const medio = document.querySelector("#medio");
+      const interno = document.querySelector("#interno");
+      const boton = document.querySelector("#boton");
+
+      externo.addEventListener("click", () => {
+        console.log("Click en EXTERNO");
+      });
+
+      medio.addEventListener("click", () => {
+        console.log("Click en MEDIO");
+      });
+
+      interno.addEventListener("click", () => {
+        console.log("Click en INTERNO");
+      });
+
+      boton.addEventListener("click", (e) => {
+        console.log("Click en BOTÓN");
+      });
+    </script>
+  </body>
+</html>

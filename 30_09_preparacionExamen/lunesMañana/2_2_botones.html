@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="numeroBinario"></h3>
+    <button id="cero">0</button>
+    <button id="uno">1</button>
+
+    <script>
+
+        const num0 = document.querySelector('#cero');
+        const num1 = document.querySelector('#uno');
+        const numEntero = document.querySelector('#numeroBinario');
+
+        num0.addEventListener('click', ()=>{
+            numEntero.textContent += '0';
+        });
+
+        num1.addEventListener('click', ()=>{
+            numEntero.textContent += '1';
+        });
+
+
+
+    </script>
+</body>
+</html>

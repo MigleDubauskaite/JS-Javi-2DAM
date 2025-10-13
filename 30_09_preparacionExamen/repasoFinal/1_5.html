@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+      }
+
+      // 2
+      console.log("\n");
+      const frutas = ["manzana", "pera", "plátano"];
+      for (const fruta of frutas) {
+        console.log(fruta);
+      }
+
+      // 3
+      console.log("\n");
+      const colores = ["rojo", "verde", "azul"];
+      for (const [indice, valor] of colores.entries()) {
+        console.log(`Posición ${indice}: ${valor}`);
+      }
+
+      // 4
+      console.log("\n");
+      const libro = { titulo: "El Quijote", autor: "Cervantes", año: 1605 };
+      for (const l in libro) {
+        console.log(`${l}: ${libro[l]}`);
+      }
+
+      // 5
+      console.log("\n");
+      for (const l of Object.keys(libro)) {
+        console.log(l);
+      }
+
+      // 6
+      console.log("\n");
+      for (const l of Object.values(libro)) {
+        console.log(l);
+      }
+
+      // 7
+      console.log("\n");
+      for (const [clave, valor] of Object.entries(libro)) {
+        console.log(`"${clave}: ${valor}"`);
+      }
+
+      // 8
+      console.log("\n");
+      let num = 5;
+      while (num >= 1) {
+        console.log(num);
+        num--;
+      }
+
+      // 9
+      console.log("\n");
+      let nume = 2;
+      do {
+        console.log(nume);
+        nume += 2;
+      } while (nume <= 10);
+
+      // 10
+      console.log("\n");
+      const precios = [10, 20, 30, 40];
+      precios.forEach((p) => {
+        console.log(`Precio: ${p}€`);
+      });
+
+      // 11
+      console.log("\n");
+      for (let i = 1; i <= 15; i += 2) {
+        console.log(i);
+      }
+
+      // 12
+      console.log("\n");
+      const numeros = [5, 10, 15, 20];
+      let suma = 0;
+      for (const num of numeros) {
+        suma += num;
+      }
+      console.log(`Suma: ${suma}`);
+
+      // 13
+      console.log("\n");
+      const coche = {
+        marca: "Toyota",
+        modelo: "Corolla",
+        año: 2020,
+        color: "blanco",
+      };
+      let totalPropiedades = 0;
+      for (const c in coche) {
+        totalPropiedades++;
+      }
+      console.log(`Total propiedades: ${totalPropiedades}`);
+
+      // 14
+      console.log("\n");
+      const alumno = { nombre: "Juan", edad: 20, curso: "2DAM" };
+      Object.entries(alumno).forEach(([clave, valor]) => {
+        console.log(`"${clave}: ${valor}"`);
+      });
+
+      // 15
+      console.log("\n");
+      let multiplos = 3;
+      while (multiplos <= 20) {
+        console.log(multiplos);
+        multiplos += 3;
+      }
+
+      // 16
+      console.log("\n");
+      const temperaturas = [1, 20, 25, 30, 35];
+      const tempFahr = temperaturas.map((t) => t * 1.7 + 32);
+      console.log(tempFahr);
+
+      // 17
+      console.log("\n");
+      const edades = [12, 18, 25, 16, 30, 14];
+      const edadesFiltradas = edades.filter((e) => e >= 18);
+      console.log(edadesFiltradas);
+
+      // 18
+      console.log("\n");
+      for (let i = 20; i >= 10; i--) {
+        console.log(i);
+      }
+
+      // 19
+      console.log("\n");
+      const palabras = ["hola", "mundo", "javascript"];
+      for (const p of palabras) {
+        console.log(`${p} tiene ${p.length} letras.`);
+      }
+
+      // 20
+      console.log("\n");
+      let numeritos = 1;
+      let sumita = 0;
+      do {
+        sumita += numeritos;
+        numeritos++;
+      } while (numeritos <= 5);
+      console.log(sumita);
+    </script>
+  </body>
+</html>
